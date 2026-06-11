@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bond-kindly.lovable.app/sitemap.xml

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ConnectOut | Human Connection through Activities</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#efe7e1",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed": "#a5f4bf",
+                        "on-background": "#1e1b18",
+                        "primary-container": "#d04400",
+                        "surface": "#fff8f4",
+                        "surface-dim": "#e0d9d3",
+                        "outline": "#8f7066",
+                        "surface-container": "#f4ece7",
+                        "surface-container-low": "#faf2ed",
+                        "inverse-primary": "#ffb59c",
+                        "on-secondary-container": "#237248",
+                        "surface-container-highest": "#e9e1dc",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "secondary": "#1b6c42",
+                        "on-tertiary-fixed-variant": "#4e453d",
+                        "on-secondary-fixed": "#00210f",
+                        "on-primary-container": "#fffbff",
+                        "surface-bright": "#fff8f4",
+                        "on-surface-variant": "#5b4138",
+                        "on-primary-fixed-variant": "#822800",
+                        "on-tertiary-container": "#fffbff",
+                        "tertiary-container": "#7d736a",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#d1c4ba",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#00522e",
+                        "primary-fixed-dim": "#ffb59c",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed": "#211a14",
+                        "on-surface": "#1e1b18",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#33302c",
+                        "secondary-fixed-dim": "#8ad7a4",
+                        "primary": "#a63500",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed": "#390c00",
+                        "inverse-on-surface": "#f7efea",
+                        "surface-variant": "#e9e1dc",
+                        "secondary-container": "#a5f4bf",
+                        "outline-variant": "#e3bfb3",
+                        "tertiary": "#645a52",
+                        "surface-tint": "#aa3600",
+                        "tertiary-fixed": "#eee0d5",
+                        "background": "#fff8f4"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "sm": "8px",
+                        "base": "8px",
+                        "xxl": "48px",
+                        "xl": "32px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Fraunces"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Fraunces"],
+                        "label-mono": ["JetBrains Mono"],
+                        "button": ["Inter"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "display-hero": ["Fraunces"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F7F4EF;
+            color: #1e1b18;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .activity-card {
+            box-shadow: 0 4px 12px rgba(30, 27, 24, 0.03);
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        .activity-card:hover {
+            box-shadow: 0 12px 24px rgba(30, 27, 24, 0.08);
+            transform: translateY(-4px);
+        }
+        .bobbing-1 { animation: bob 6s ease-in-out infinite; }
+        .bobbing-2 { animation: bob 8s ease-in-out infinite 1s; }
+        .bobbing-3 { animation: bob 7s ease-in-out infinite 2s; }
+        @keyframes bob {
+            0%, 100% { transform: translateY(0) rotate(var(--rot, 0deg)); }
+            50% { transform: translateY(-20px) rotate(var(--rot, 0deg)); }
+        }
+        .slot-filled { background-color: #1b6c42; }
+        .slot-empty { border: 1.5px solid #e3bfb3; }
+    </style>
+</head>
+<body class="min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-surface border-b border-surface-container-high sticky top-0 z-50">
+<div class="flex justify-between items-center w-full px-container-margin py-sm max-w-7xl mx-auto">
+<div class="flex items-center gap-xl">
+<span class="font-headline-md text-headline-md font-semibold text-primary">ConnectOut</span>
+<div class="hidden md:flex gap-lg items-center">
+<a class="font-button text-button text-primary border-b-2 border-primary font-semibold hover:text-primary-container transition-colors duration-200 py-1" href="#">Home</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary-container transition-colors duration-200 py-1" href="#">Explore</a>
+<a class="font-button text-button text-on-surface-variant hover:text-primary-container transition-colors duration-200 py-1" href="#">Activities</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-colors p-2 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">notifications</button>
+<button class="bg-primary text-on-primary font-button text-button px-lg py-sm rounded-xl hover:scale-95 transition-transform duration-150 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Post Activity</button>
+<div class="w-10 h-10 rounded-full bg-surface-container overflow-hidden border border-outline-variant">
+<img alt="User Profile Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5KcX3LPCdcIGy_7Xk1BLhNWTKgedym2Gst1_swNo1hKfK0INgMjFAhVka2mBfTR_8mpVh8JDjH0-6OaECy0jR1gl57qe-r3HUAu1teom5E3Rre_IIhEHqrTUSQr_Wl1qIiW5gGHy3O-tUBn_tZW_U0esYdLU9dMY1ldnaV5Akv2d8KwAM8Kis--4FckkswF4luQOwdtVldGJEcsf-_kNMCC9AT0t_Epicu2elXiSvPVNH4WanXQyKId9dxQUvR-ifXtX4DpYnDsg"/>
+</div>
+</div>
+</div>
+</nav>
+<main>
+<!-- Section 1: Hero -->
+<section class="relative overflow-hidden pt-xxl pb-xxl px-container-margin max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-xxl">
+<div class="flex-1 z-10">
+<h1 class="font-display-hero text-display-hero italic mb-lg text-on-background">
+                    Find someone to <span class="text-primary">drive</span> with. <br/>
+<span class="text-secondary">Debate</span> with. <br/>
+<span class="text-tertiary">Trek</span> with. <br/>
+<span class="text-primary">Chai</span> with.
+                </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg mb-xl">
+                    ConnectOut connects people for real activities — hyper-specific, location-aware, and actually human.
+                </p>
+<div class="flex flex-wrap gap-md">
+<button class="bg-primary text-on-primary font-button text-button px-xl py-lg rounded-xl hover:scale-95 transition-transform shadow-lg focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Post an activity</button>
+<button class="border-2 border-outline-variant text-on-surface font-button text-button px-xl py-lg rounded-xl hover:bg-surface-container transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">Browse near me</button>
+</div><div class="hidden md:flex lg:hidden mt-xl w-full justify-center"><div class="activity-card w-72 bg-surface-container-lowest rounded-xl flex overflow-hidden border border-surface-container-high"><div class="w-[6px] bg-primary-container shrink-0"></div><div class="p-md flex-1"><div class="flex justify-between items-start mb-xs"><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded-full text-tertiary">Chai</span><div class="flex gap-1"><div class="w-2 h-2 rounded-sm slot-filled"></div><div class="w-2 h-2 rounded-sm slot-empty"></div><div class="w-2 h-2 rounded-sm slot-empty"></div></div></div><h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">Chai &amp; conversations near Gandhipuram</h3><p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Today 5 PM</p></div></div></div>
+</div>
+<!-- Floating Cards -->
+<div class="flex-1 relative h-[500px] w-full hidden lg:block">
+<!-- Card 1 -->
+<div class="activity-card bobbing-1 absolute top-0 left-10 w-72 bg-surface-container-lowest rounded-xl flex overflow-hidden border border-surface-container-high" style="--rot: -3deg;">
+<div class="w-[6px] bg-secondary shrink-0"></div>
+<div class="p-md flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded-full text-tertiary">Trekking</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">Silent valley trek morning session</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Starting 5:30 AM</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="activity-card bobbing-2 absolute top-40 right-10 w-72 bg-surface-container-lowest rounded-xl flex overflow-hidden border border-surface-container-high" style="--rot: 2deg;">
+<div class="w-[6px] bg-primary-container shrink-0"></div>
+<div class="p-md flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded-full text-tertiary">Debate</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">AI vs Human Creativity over Coffee</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Race Course Road</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="activity-card bobbing-3 absolute bottom-10 left-20 w-72 bg-surface-container-lowest rounded-xl flex overflow-hidden border border-surface-container-high" style="--rot: -1deg;">
+<div class="w-[6px] bg-outline shrink-0"></div>
+<div class="p-md flex-1">
+<div class="flex justify-between items-start mb-xs">
+<span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded-full text-tertiary">Art</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">Watercolor painting in the park</h3>
+<p class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Sunday 10 AM</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: How it works -->
+<section class="bg-surface-container-low py-xxl px-container-margin">
+<div class="max-w-7xl mx-auto">
+<div class="text-center mb-xxl">
+<h2 class="font-headline-lg text-headline-lg mb-md">How ConnectOut works</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Simple, human-centric connection.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-surface-container-high text-center">
+<div class="w-16 h-16 bg-primary-fixed rounded-full flex items-center justify-center mx-auto mb-lg text-primary">
+<span class="material-symbols-outlined scale-125">edit_square</span>
+</div>
+<h3 class="font-headline-md text-headline-md italic mb-sm">Post activity</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Share exactly what you're planning. Be hyper-specific.</p>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-surface-container-high text-center">
+<div class="w-16 h-16 bg-secondary-fixed rounded-full flex items-center justify-center mx-auto mb-lg text-secondary">
+<span class="material-symbols-outlined scale-125">diversity_3</span>
+</div>
+<h3 class="font-headline-md text-headline-md italic mb-sm">People find it</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Locals with similar niche interests see your post on their map.</p>
+</div>
+<div class="bg-surface-container-lowest p-xl rounded-xl border border-surface-container-high text-center">
+<div class="w-16 h-16 bg-tertiary-fixed rounded-full flex items-center justify-center mx-auto mb-lg text-tertiary">
+<span class="material-symbols-outlined scale-125">chat</span>
+</div>
+<h3 class="font-headline-md text-headline-md italic mb-sm">Request &amp; Chat</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Screen requests, confirm details, and meet in the real world.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Activity Categories Grid -->
+<section class="py-xxl px-container-margin max-w-7xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-xl">Explore by Interest</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md"><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Chai')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">☕</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">24</span></div><p class="font-headline-md text-headline-md italic mt-md">Chai</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Ride Along')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🚛</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">8</span></div><p class="font-headline-md text-headline-md italic mt-md">Ride Along</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Creative')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🎨</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">15</span></div><p class="font-headline-md text-headline-md italic mt-md">Creative</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Outdoor')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🥾</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">31</span></div><p class="font-headline-md text-headline-md italic mt-md">Outdoor</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Coding')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🧑‍💻</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">12</span></div><p class="font-headline-md text-headline-md italic mt-md">Coding</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Reading')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">📚</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">19</span></div><p class="font-headline-md text-headline-md italic mt-md">Reading</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Cooking')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🍲</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">6</span></div><p class="font-headline-md text-headline-md italic mt-md">Cooking</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Sports')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🎾</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">22</span></div><p class="font-headline-md text-headline-md italic mt-md">Sports</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Debate')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🗣️</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">9</span></div><p class="font-headline-md text-headline-md italic mt-md">Debate</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Jamming')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🎸</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">11</span></div><p class="font-headline-md text-headline-md italic mt-md">Jamming</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Gaming')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🎲</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">14</span></div><p class="font-headline-md text-headline-md italic mt-md">Gaming</p></div><div class="group relative bg-surface-container-lowest p-lg rounded-xl border border-surface-container-high transition-all duration-300 hover:-translate-y-2 hover:shadow-lg cursor-pointer overflow-hidden focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2" onclick="window.location.href='/feed?category='+encodeURIComponent('Cycling')" tabindex="0"><div class="absolute left-0 top-0 bottom-0 w-0 bg-primary group-hover:w-[6px] transition-all"></div><div class="flex justify-between items-center"><span class="text-3xl">🚲</span><span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded text-primary">18</span></div><p class="font-headline-md text-headline-md italic mt-md">Cycling</p></div></div>
+</section>
+<!-- Section 4: Social Proof (Signature Cards) -->
+<section class="bg-surface-container-low py-xxl px-container-margin">
+<div class="max-w-7xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg mb-xl text-center">Happening right now</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Card 1: Carpool -->
+<div class="activity-card bg-surface-container-lowest rounded-xl flex overflow-hidden border border-surface-container-high">
+<div class="w-[6px] bg-primary shrink-0"></div>
+<div class="p-lg flex-1">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded-full text-tertiary">Co-driver</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-md">1 seat left: Coimbatore -&gt; Bangalore, leaving Friday 6am</h3>
+<div class="flex items-center gap-sm mt-auto">
+<div class="w-6 h-6 rounded-full bg-outline-variant overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrCUM_J01G4T11-paqi9PSzXGuggk4c_VKgLkmIHOGMkmEwh6g2JK6nAhU4j01mk_tOADfRbhw_spsMOdVH6ykxuJExHHI_PpG1_A9Z9ag3RouUZ0mYF-RQbf6Rlgr3dkztZwC0ReYpzbFGQ4bc-jv6XxDbjJvstU6DUO5BrWZGOk36F4l2m6p6pWq5QV62Gas4wIgSRkgjRQBGA4y7zfHM3Y0aig-G2mtq-njLuO1gg70E-w6Mq7AFEUlnmA3mloux664qSljBR0"/>
+</div>
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Posted by Karthik</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Hackathon -->
+<div class="activity-card bg-surface-container-lowest rounded-xl flex overflow-hidden border border-surface-container-high">
+<div class="w-[6px] bg-secondary shrink-0"></div>
+<div class="p-lg flex-1">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded-full text-tertiary">Hackathon</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-md">Hackathon team — need UI/UX designer, Chakravyuha Trichy</h3>
+<div class="flex items-center gap-sm mt-auto">
+<div class="w-6 h-6 rounded-full bg-outline-variant overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHF3_rvwyKRZfjPhx-CsDkgS2MpQmtuNgpH9ng5StqO4DaHltD73yldhhTPOCVRhaE0A_1DapIVEupMPIM3ZI71Y401DA-VbjrVVKwxbT5DwfjvtahTk2K0NHGUUaFAnlNne2rZdu3uetQZjZdcJHFlseq5PZpiVvSKzb884mjMwDFrP20D7y4oa4pvwTzN9OzWQQ8PqFxEqu0AG9MMjYpNf_EgZ-j_HW8MMvlkgxGCsEWf8DExP80ab18oKmpF3LNymA5xp7YeOU"/>
+</div>
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Posted by Team Flux</span>
+</div>
+</div>
+</div>
+<!-- Card 3: Chai -->
+<div class="activity-card bg-surface-container-lowest rounded-xl flex overflow-hidden border border-surface-container-high">
+<div class="w-[6px] bg-primary-container shrink-0"></div>
+<div class="p-lg flex-1">
+<div class="flex justify-between items-start mb-sm">
+<span class="font-label-mono text-label-mono bg-surface-container px-sm py-1 rounded-full text-tertiary">Chai-mate</span>
+<div class="flex gap-1">
+<div class="w-2 h-2 rounded-sm slot-filled"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+<div class="w-2 h-2 rounded-sm slot-empty"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-md">Chai &amp; conversations near Gandhipuram, today 5pm, 2 spots</h3>
+<div class="flex items-center gap-sm mt-auto">
+<div class="w-6 h-6 rounded-full bg-outline-variant overflow-hidden">
+<img alt="User Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAahi4hzXM3nkihfo5hTd6d-mYEs-LazCuXXA3UnTB8V6d4U5aqkQOgIGg8P9dMFRXld0baPoPiLglDXEFJMPvpkBDqPJnIJy8eF2tY4Vpz3MN0WiXrNE7g6SJZPi7HXEeBNYFqfB1I6u_0RzY55I9teJiwr_08PrPdF-_GMB-jrqABmbP06dA48bL4Bgeh0njyrFvPl3y2ZWDChRKfO0ZdRbL1YEbk1C1pZeQkGfwwjH0E_v2sExr97XG8vhotop2qPeUsuSKlEF8"/>
+</div>
+<span class="font-label-mono text-[10px] text-on-surface-variant uppercase tracking-widest">Posted by Anjali</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-xl text-center">
+<button class="font-button text-button text-primary border-b-2 border-primary pb-1 hover:text-primary-container transition-colors focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">See all 142 activities nearby</button>
+</div>
+</div>
+</section>
+<!-- Section 5: Footer -->
+<footer class="bg-surface-container-lowest border-t border-surface-container-high py-xl px-container-margin">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-lg">
+<div>
+<span class="font-headline-md text-headline-md italic text-on-background font-semibold">ConnectOut</span>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Warmly built for human connection.</p>
+<p class="font-label-mono text-[10px] text-on-surface-variant mt-md uppercase tracking-widest">Made with chai ☕ in Coimbatore</p>
+</div>
+<div class="flex flex-wrap gap-xl">
+<div class="flex flex-col gap-sm">
+<span class="font-label-mono text-label-mono text-tertiary uppercase mb-xs">Product</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">About</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Safety</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Guidelines</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-mono text-label-mono text-tertiary uppercase mb-xs">Social</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Twitter</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Instagram</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">GitHub</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-mono text-label-mono text-tertiary uppercase mb-xs">Legal</span>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Terms</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors" href="#">Contact</a>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto mt-xl pt-lg border-t border-surface-container flex flex-col md:flex-row justify-between items-center gap-md">
+<p class="font-label-mono text-label-mono text-on-surface-variant">© 2024 ConnectOut. All rights reserved.</p>
+<div class="flex gap-lg">
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">language</span>
+<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary">share</span>
+</div>
+</div>
+</footer>
+</main>
+<!-- Mobile Bottom Nav (Visible only on mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-low shadow-[0_-1px_4px_rgba(0,0,0,0.05)] flex justify-around items-center px-4 py-2 rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container rounded-full px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-label-mono text-[10px]">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined">search</span>
+<span class="font-label-mono text-[10px]">Search</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined">notifications</span>
+<span class="font-label-mono text-[10px]">Alerts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant px-4 py-1 active:scale-90 duration-150">
+<span class="material-symbols-outlined">person</span>
+<span class="font-label-mono text-[10px]">Profile</span>
+</div>
+</nav>
+<script>
+        // Simple micro-interaction for cards
+        document.querySelectorAll('.activity-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            });
+        });
+    </script>
+</body></html>

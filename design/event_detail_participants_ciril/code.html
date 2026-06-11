@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Evening Football Scrimmage — Participants</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#fffbff",
+                    "surface-bright": "#fff8f4",
+                    "tertiary-fixed": "#eee0d5",
+                    "outline-variant": "#e3bfb3",
+                    "on-tertiary": "#ffffff",
+                    "secondary-fixed-dim": "#8ad7a4",
+                    "background": "#fff8f4",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#00210f",
+                    "on-secondary-container": "#237248",
+                    "surface-variant": "#e9e1dc",
+                    "primary-container": "#d04400",
+                    "on-background": "#1e1b18",
+                    "surface": "#fff8f4",
+                    "secondary": "#1b6c42",
+                    "outline": "#8f7066",
+                    "surface-dim": "#e0d9d3",
+                    "inverse-primary": "#ffb59c",
+                    "on-surface": "#1e1b18",
+                    "error-container": "#ffdad6",
+                    "surface-tint": "#aa3600",
+                    "surface-container-highest": "#e9e1dc",
+                    "surface-container": "#f4ece7",
+                    "on-surface-variant": "#5b4138",
+                    "secondary-container": "#a5f4bf",
+                    "primary-fixed": "#ffdbcf",
+                    "on-secondary-fixed-variant": "#00522e",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#7d736a",
+                    "on-primary-container": "#fffbff",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#390c00",
+                    "on-tertiary-fixed-variant": "#4e453d",
+                    "primary": "#a63500",
+                    "on-secondary": "#ffffff",
+                    "inverse-surface": "#33302c",
+                    "secondary-fixed": "#a5f4bf",
+                    "on-tertiary-fixed": "#211a14",
+                    "surface-container-low": "#faf2ed",
+                    "primary-fixed-dim": "#ffb59c",
+                    "inverse-on-surface": "#f7efea",
+                    "tertiary": "#645a52",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#efe7e1",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#822800",
+                    "tertiary-fixed-dim": "#d1c4ba"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "md": "16px",
+                    "gutter": "16px",
+                    "base": "8px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "lg": "24px",
+                    "xl": "32px",
+                    "container-margin": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg-mobile": ["Fraunces"],
+                    "headline-lg": ["Fraunces"],
+                    "display-hero": ["Fraunces"],
+                    "headline-md": ["Fraunces"],
+                    "body-md": ["Inter"],
+                    "label-mono": ["JetBrains Mono"],
+                    "button": ["Inter"],
+                    "body-lg": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #f7f4ef;
+      }
+      .activity-card-border {
+        border-left: 6px solid #1b6c42;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #e5ded4;
+        border-radius: 10px;
+      }
+    </script>
+</head>
+<body class="font-body-md text-on-surface">
+
+    <!-- TopNavBar -->
+    <nav class="w-full top-0 sticky bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline z-50">
+        <div class="flex justify-between items-center px-lg py-md max-w-7xl mx-auto">
+            <div class="flex items-center gap-xl">
+                <span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Kindrd</span>
+                <div class="hidden md:flex items-center gap-lg">
+                    <a href="#" class="text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-body-md">Explore</a>
+                    <a href="#" class="text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary py-1 font-body-md">Activities</a>
+                    <a href="#" class="text-on-surface-variant dark:text-on-tertiary-fixed-variant hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-body-md">Community</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-md">
+                <button class="bg-primary text-on-primary px-lg py-sm rounded-xl font-button active:scale-95 transition-transform duration-150">Post Activity</button>
+                <div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=120&auto=format&fit=crop" 
+                         alt="User Profile" 
+                         class="w-full h-full object-cover"
+                         data-alt="A close-up professional headshot of a friendly man with a warm smile, wearing a neutral-colored linen shirt. The background is a soft-focus garden setting with natural, warm afternoon sunlight. The overall aesthetic is clean, trustworthy, and organic, consistent with the Kindrd brand's human-centric design philosophy.">
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-container-margin py-xxl">
+        
+        <!-- Page Header -->
+        <header class="mb-xl">
+            <h1 class="font-headline-lg text-headline-lg text-on-surface mb-base italic">Evening Football Scrimmage — Participants</h1>
+            <p class="font-body-md text-on-surface-variant">Gathering for a friendly 7-a-side match at Regent's Park.</p>
+        </header>
+
+        <!-- Main Content Card -->
+        <section class="bg-surface-container-lowest rounded-xl border border-outline-variant overflow-hidden activity-card-border shadow-sm">
+            <!-- Slots Overview (From Screen 17 Context) -->
+            <div class="p-lg border-b border-outline-variant">
+                <div class="flex items-center justify-between mb-md">
+                    <span class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Attendance Status</span>
+                    <span class="text-secondary font-bold font-body-md">11 / 14 Slots Filled</span>
+                </div>
+                <div class="flex gap-xs">
+                    <!-- Filled Slots -->
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <div class="w-full h-4 bg-secondary rounded-sm"></div>
+                    <!-- Empty Slots -->
+                    <div class="w-full h-4 border border-outline-variant rounded-sm"></div>
+                    <div class="w-full h-4 border border-outline-variant rounded-sm"></div>
+                    <div class="w-full h-4 border border-outline-variant rounded-sm"></div>
+                </div>
+            </div>
+
+            <!-- Expandable Participants List Section -->
+            <div x-data="{ expanded: true }" class="bg-white">
+                <button @click="expanded = !expanded" class="w-full flex items-center justify-between px-lg py-md hover:bg-surface-container-low transition-colors duration-200">
+                    <div class="flex items-center gap-sm">
+                        <span class="material-symbols-outlined text-primary" data-icon="groups">groups</span>
+                        <span class="font-headline-md text-headline-md italic">See all participants</span>
+                    </div>
+                    <span class="material-symbols-outlined transition-transform duration-300" :class="expanded ? 'rotate-180' : ''" data-icon="expand_more">expand_more</span>
+                </button>
+
+                <div x-show="expanded" x-collapse class="px-lg pb-lg">
+                    <div class="mt-base space-y-base max-h-[500px] overflow-y-auto custom-scrollbar pr-xs">
+                        
+                        <!-- Pinned Organiser -->
+                        <div class="flex items-center justify-between p-md bg-surface-container-low rounded-lg border border-outline-variant">
+                            <div class="flex items-center gap-md">
+                                <div class="relative">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=100&auto=format&fit=crop" 
+                                         class="w-12 h-12 rounded-full object-cover border-2 border-secondary" 
+                                         alt="Alex Rivera"
+                                         data-alt="A portrait of Alex Rivera, a man in his early 30s with short dark hair and a confident, friendly expression. He is photographed in natural lighting, giving a professional yet approachable feel. The background is a blurred cityscape at dusk. The image reflects the warm humanist aesthetic of the platform.">
+                                    <div class="absolute -bottom-1 -right-1 bg-secondary text-white rounded-full p-0.5 flex items-center justify-center">
+                                        <span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;" data-icon="verified">verified</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex items-center gap-sm">
+                                        <h4 class="font-headline-md text-[18px] leading-tight">Alex Rivera</h4>
+                                        <span class="bg-secondary-container text-on-secondary-container px-sm py-xs rounded-full font-label-mono text-[10px] uppercase tracking-tighter">Organiser</span>
+                                    </div>
+                                    <p class="font-label-mono text-label-mono text-on-surface-variant">@arivera_football</p>
+                                </div>
+                            </div>
+                            <span class="font-label-mono text-label-mono text-on-surface-variant">Organised 2h ago</span>
+                        </div>
+
+                        <!-- Participant List -->
+                        <div class="space-y-sm">
+                            <!-- Participant 1 -->
+                            <div class="flex items-center justify-between p-md hover:bg-surface-container-lowest transition-colors border-b border-outline-variant last:border-0">
+                                <div class="flex items-center gap-md">
+                                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=100&auto=format&fit=crop" class="w-12 h-12 rounded-full object-cover border border-outline-variant" alt="Jordan Smith" data-alt="Close-up portrait of a cheerful young man with curly hair and casual sports attire. He looks directly at the camera with an inviting and friendly smile. Warm sun-drenched lighting enhances the natural look. Cohesive with the editorial, warm humanism style of the application.">
+                                    <div>
+                                        <h4 class="font-body-md font-semibold text-on-surface">Jordan Smith</h4>
+                                        <p class="font-label-mono text-label-mono text-on-surface-variant">@jsmith_striker</p>
+                                    </div>
+                                </div>
+                                <span class="font-label-mono text-label-mono text-on-surface-variant">Joined 1h ago</span>
+                            </div>
+
+                            <!-- Participant 2 -->
+                            <div class="flex items-center justify-between p-md hover:bg-surface-container-lowest transition-colors border-b border-outline-variant last:border-0">
+                                <div class="flex items-center gap-md">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=100&auto=format&fit=crop" class="w-12 h-12 rounded-full object-cover border border-outline-variant" alt="Sarah Chen" data-alt="Portrait of Sarah Chen, a focused woman in her 20s with athletic features, wearing a simple sports headband. The background is a soft green field. Lighting is bright and natural, capturing a sense of energy and community. Clean, high-quality editorial photography.">
+                                    <div>
+                                        <h4 class="font-body-md font-semibold text-on-surface">Sarah Chen</h4>
+                                        <p class="font-label-mono text-label-mono text-on-surface-variant">@schen_plays</p>
+                                    </div>
+                                </div>
+                                <span class="font-label-mono text-label-mono text-on-surface-variant">Joined 45m ago</span>
+                            </div>
+
+                            <!-- Participant 3 -->
+                            <div class="flex items-center justify-between p-md hover:bg-surface-container-lowest transition-colors border-b border-outline-variant last:border-0">
+                                <div class="flex items-center gap-md">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=100&auto=format&fit=crop" class="w-12 h-12 rounded-full object-cover border border-outline-variant" alt="Marcus T." data-alt="A portrait of Marcus, a man with a friendly bearded face and a slight smile. He is wearing a dark blue t-shirt. The light is diffused, highlighting his approachable nature. The style is modern organic, fitting into a community-focused social application.">
+                                    <div>
+                                        <h4 class="font-body-md font-semibold text-on-surface">Marcus T.</h4>
+                                        <p class="font-label-mono text-label-mono text-on-surface-variant">@marcus_the_wall</p>
+                                    </div>
+                                </div>
+                                <span class="font-label-mono text-label-mono text-on-surface-variant">Joined 30m ago</span>
+                            </div>
+
+                            <!-- Participant 4 -->
+                            <div class="flex items-center justify-between p-md hover:bg-surface-container-lowest transition-colors border-b border-outline-variant last:border-0">
+                                <div class="flex items-center gap-md">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100&auto=format&fit=crop" class="w-12 h-12 rounded-full object-cover border border-outline-variant" alt="Elena Ruiz" data-alt="A portrait of Elena Ruiz, a woman with a bright smile and energetic eyes. She has her hair pulled back and is wearing a green workout top. The setting is a soft-focus park. High-key lighting for a clean, modern aesthetic. Reflects intentional, high-quality social connections.">
+                                    <div>
+                                        <h4 class="font-body-md font-semibold text-on-surface">Elena Ruiz</h4>
+                                        <p class="font-label-mono text-label-mono text-on-surface-variant">@elena_midfield</p>
+                                    </div>
+                                </div>
+                                <span class="font-label-mono text-label-mono text-on-surface-variant">Joined 12m ago</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Organiser Actions -->
+                    <div class="mt-lg pt-lg border-t border-outline-variant flex justify-end gap-md">
+                        <button class="px-lg py-sm rounded-xl font-button text-error border border-error hover:bg-error-container transition-colors active:scale-95 duration-150 flex items-center gap-sm">
+                            <span class="material-symbols-outlined text-[18px]" data-icon="cancel">cancel</span>
+                            Cancel event
+                        </button>
+                        <button class="bg-primary text-on-primary px-lg py-sm rounded-xl font-button hover:opacity-90 transition-opacity active:scale-95 duration-150">
+                            Message All
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Activity Teaser (Bento Layout style) -->
+        <section class="mt-xxl">
+            <h3 class="font-headline-md text-headline-md italic mb-lg">Other upcoming matches</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                <div class="bg-white p-lg rounded-xl border border-outline-variant hover:shadow-md transition-shadow group cursor-pointer">
+                    <span class="font-label-mono text-label-mono text-secondary mb-base block">SATURDAY 10:00 AM</span>
+                    <h4 class="font-headline-md text-[20px] group-hover:text-primary transition-colors">Morning Mix-in @ Hyde Park</h4>
+                    <p class="text-on-surface-variant font-body-md mt-sm line-clamp-2">A relaxed Saturday morning kickabout for all skill levels. Join us for coffee afterwards.</p>
+                    <div class="mt-md flex items-center justify-between">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-tertiary-fixed"></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed"></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-secondary-fixed"></div>
+                        </div>
+                        <span class="font-label-mono text-[10px] text-on-surface-variant">6 spots left</span>
+                    </div>
+                </div>
+                <div class="bg-white p-lg rounded-xl border border-outline-variant hover:shadow-md transition-shadow group cursor-pointer">
+                    <span class="font-label-mono text-label-mono text-secondary mb-base block">MONDAY 7:30 PM</span>
+                    <h4 class="font-headline-md text-[20px] group-hover:text-primary transition-colors">Competitive 5s @ Shoreditch</h4>
+                    <p class="text-on-surface-variant font-body-md mt-sm line-clamp-2">High intensity five-a-side for experienced players. Looking for a regular keeper.</p>
+                    <div class="mt-md flex items-center justify-between">
+                        <div class="flex -space-x-2">
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-tertiary-fixed"></div>
+                            <div class="w-8 h-8 rounded-full border-2 border-white bg-primary-fixed"></div>
+                        </div>
+                        <span class="font-label-mono text-[10px] text-on-surface-variant">2 spots left</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full py-xxl bg-surface-container dark:bg-surface-container-low border-t border-outline-variant dark:border-outline mt-xxl">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl px-lg max-w-7xl mx-auto">
+            <div>
+                <span class="font-headline-md text-headline-md text-on-surface dark:text-on-surface-variant block mb-md">Kindrd</span>
+                <p class="font-body-md text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim">Intentional human connection for the modern age.</p>
+            </div>
+            <div>
+                <h5 class="font-label-mono text-label-mono text-primary mb-md uppercase">Community</h5>
+                <ul class="space-y-sm">
+                    <li><a href="#" class="font-body-md text-on-tertiary-fixed-variant hover:text-primary underline transition-opacity">Our Story</a></li>
+                    <li><a href="#" class="font-body-md text-on-tertiary-fixed-variant hover:text-primary underline transition-opacity">Guidelines</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label-mono text-label-mono text-primary mb-md uppercase">Resource</h5>
+                <ul class="space-y-sm">
+                    <li><a href="#" class="font-body-md text-on-tertiary-fixed-variant hover:text-primary underline transition-opacity">Safety</a></li>
+                    <li><a href="#" class="font-body-md text-on-tertiary-fixed-variant hover:text-primary underline transition-opacity">Support</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-label-mono text-label-mono text-primary mb-md uppercase">Journal</h5>
+                <p class="font-body-md text-on-tertiary-fixed-variant mb-md">Stories about connection and intentionality.</p>
+                <button class="text-primary font-bold font-body-md hover:underline">Read the Journal</button>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-lg mt-xxl pt-lg border-t border-outline-variant/30 flex justify-between items-center">
+            <span class="font-label-mono text-[11px] text-on-tertiary-fixed-variant">© 2024 Kindrd. Built for human connection.</span>
+            <div class="flex gap-md">
+                <span class="material-symbols-outlined text-on-tertiary-fixed-variant cursor-pointer hover:text-primary transition-colors" data-icon="public">public</span>
+                <span class="material-symbols-outlined text-on-tertiary-fixed-variant cursor-pointer hover:text-primary transition-colors" data-icon="groups">groups</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</body>
+</html></style></head><body></body></html>

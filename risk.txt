@@ -1,0 +1,6 @@
+## Risks & decisions (RESOLVED)
+
+1. **Dead TanStack Router files in src/routes/** — Leave inert. **Action: none needed.**
+2. **Missing pages (ProfilePage, NotificationsPage, OAuthCallback)** — Create minimal stubs. **Action: done.**
+3. **logo.png missing** — Place at `public/logo.png`. **Action: manual — user places file.**
+4. **Firebase SW approach** — Use manual `importScripts` with `public/firebase-config.js` setting `self.FIREBASE_CONFIG`. In dev, Vite serves it statically; in build, a vite plugin replaces `__VITE_FIREBASE_*__` tokens. **Action: done.**

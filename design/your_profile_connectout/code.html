@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Profile | ConnectOut</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#33302c",
+                        "on-secondary-container": "#237248",
+                        "surface": "#fff8f4",
+                        "on-background": "#1e1b18",
+                        "surface-variant": "#e9e1dc",
+                        "on-error": "#ffffff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-surface-variant": "#5b4138",
+                        "surface-container-high": "#efe7e1",
+                        "surface-bright": "#fff8f4",
+                        "secondary-fixed-dim": "#8ad7a4",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-dim": "#e0d9d3",
+                        "surface-container-low": "#faf2ed",
+                        "error": "#ba1a1a",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-on-surface": "#f7efea",
+                        "primary": "#a63500",
+                        "on-tertiary-fixed-variant": "#4e453d",
+                        "background": "#fff8f4",
+                        "on-primary-fixed": "#390c00",
+                        "tertiary-container": "#7d736a",
+                        "tertiary-fixed-dim": "#d1c4ba",
+                        "outline-variant": "#e3bfb3",
+                        "surface-container": "#f4ece7",
+                        "tertiary-fixed": "#eee0d5",
+                        "on-secondary-fixed": "#00210f",
+                        "on-tertiary-container": "#fffbff",
+                        "primary-fixed-dim": "#ffb59c",
+                        "error-container": "#ffdad6",
+                        "outline": "#8f7066",
+                        "secondary-container": "#a5f4bf",
+                        "on-primary-container": "#fffbff",
+                        "on-surface": "#1e1b18",
+                        "surface-tint": "#aa3600",
+                        "secondary-fixed": "#a5f4bf",
+                        "on-tertiary-fixed": "#211a14",
+                        "on-secondary-fixed-variant": "#00522e",
+                        "surface-container-highest": "#e9e1dc",
+                        "inverse-primary": "#ffb59c",
+                        "tertiary": "#645a52",
+                        "on-primary-fixed-variant": "#822800",
+                        "secondary": "#1b6c42",
+                        "primary-container": "#d04400"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "md": "16px",
+                        "xs": "4px",
+                        "container-margin": "24px",
+                        "base": "8px",
+                        "gutter": "16px",
+                        "xl": "32px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Fraunces"],
+                        "label-mono": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "display-hero": ["Fraunces"],
+                        "body-lg": ["Inter"],
+                        "headline-md": ["Fraunces"],
+                        "body-md": ["Inter"],
+                        "button": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .slot-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 1px;
+        }
+        .activity-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .activity-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .tab-active {
+            border-bottom: 2px solid #a63500;
+            color: #a63500;
+        }
+        #edit-form {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+            opacity: 0;
+        }
+        #edit-form.open {
+            max-height: 1000px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- Top Navigation Shell -->
+<header class="bg-surface dark:bg-surface-dim border-b border-surface-variant dark:border-outline-variant flex justify-between items-center w-full px-container-margin py-base z-50 sticky top-0">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-md text-headline-md italic text-primary dark:text-primary-fixed-dim">ConnectOut</h1>
+</div>
+<div class="hidden md:flex gap-lg items-center">
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors font-body-md" href="#">Home</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors font-body-md" href="#">Discover</a>
+<a class="text-on-surface-variant hover:bg-surface-container-low transition-colors font-body-md" href="#">Activity</a>
+<a class="text-primary font-bold hover:bg-surface-container-low transition-colors font-body-md" href="#">Profile</a>
+</div>
+<div class="flex items-center gap-md">
+<span class="material-symbols-outlined text-primary" data-icon="search">search</span>
+<span class="material-symbols-outlined text-primary" data-icon="notifications">notifications</span>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional studio portrait of a friendly man in his late 20s with a warm smile. He has short dark hair and is wearing a soft linen shirt in a neutral beige tone. The lighting is soft and natural, coming from the side to create gentle shadows, set against a warm off-white minimalist background that matches the ConnectOut aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCh39w9-qh50doOhDlMgp2Y2mm19i1kRgp_QO7hjirsXt-pQdXulSA9skMSDllSLAy01GyPQWX5PQGJIMYBY7Epm6sJgfQm1YnJedqXwqJNPLYibrhbVf4dUBVFYRYNcUcxzd6CWnN_906bcjAPjrVdL5BByKcwSuXjaHj6mmxiAdkHHsv3yU0cKgNgqAG-dsY8d2wyHyUZuH2WxxxvMRILPOuFK7FYwDoHemB2Dx400qaGnfTcmbvpO1AUagIYEZcJQUzr4-aRbQ"/>
+</div>
+</div>
+</header>
+<main class="max-w-[1200px] mx-auto px-container-margin py-xl flex flex-col md:flex-row gap-xxl">
+<!-- Sidebar -->
+<aside class="w-full md:w-[320px] shrink-0">
+<div class="sticky top-24 space-y-lg">
+<!-- Profile Header -->
+<div class="flex flex-col items-center text-center">
+<div class="w-32 h-32 rounded-full overflow-hidden border-4 border-surface-container-highest shadow-sm mb-md">
+<img alt="Julian's Profile Avatar" class="w-full h-full object-cover" data-alt="A high-resolution, close-up portrait of Julian, a creative professional. He has a welcoming expression and bright eyes, wearing a simple organic cotton tee. The photograph is captured with a shallow depth of field, blurring the background which consists of a sun-drenched library with warm wooden tones and soft paper textures, reinforcing the brand's warm humanism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnW_DSd9QYZFe4AquQshTpYggUJQx_WKI5TA-3DZpV6F_uxJ6ez-nrVogkfmaAOikuWOmVhQwfyeFDvryA2yqhkgMvUSQ1DKSq9YYsp_J0htyGRymuhPqq7tmNd2muBCFgOioycROGL76VsoPfVeR4LzANWnJkBmMOM45mQzp43xFOPehQnT5Saa_Mz0V_xQqxu2FoYW_N-HrdERMOSgkIA3JoPla2CvWKxaH4QcTqFn9px_Pj-cPr-rLQG-vkRQcdtp7jXa5tipc"/>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Julian Rivera</h2>
+<p class="font-body-md text-on-surface-variant flex items-center justify-center gap-xs">
+<span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    Portland, Oregon
+                </p>
+<div class="flex items-center gap-xs mt-sm text-primary">
+<div class="flex">
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-[18px]" data-icon="star" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+<span class="text-label-mono font-label-mono text-on-surface-variant mt-1">(24 reviews)</span>
+</div>
+</div>
+<!-- Bio & Interests -->
+<div class="pt-lg border-t border-surface-variant">
+<p class="font-body-md text-on-surface mb-lg italic leading-relaxed">
+                    "Curator of quiet mornings and shared craft. I believe in the magic of small groups and intentional conversation. Usually found with a fountain pen or a sourdough starter."
+                </p>
+<div class="flex flex-wrap gap-xs">
+<span class="px-sm py-1 bg-surface-variant text-on-tertiary-fixed-variant rounded-full font-label-mono text-label-mono">ARTISAN COFFEE</span>
+<span class="px-sm py-1 bg-surface-variant text-on-tertiary-fixed-variant rounded-full font-label-mono text-label-mono">TYPOGRAPHY</span>
+<span class="px-sm py-1 bg-surface-variant text-on-tertiary-fixed-variant rounded-full font-label-mono text-label-mono">URBAN HIKING</span>
+<span class="px-sm py-1 bg-surface-variant text-on-tertiary-fixed-variant rounded-full font-label-mono text-label-mono">CERAMICS</span>
+</div>
+</div>
+<!-- Action Button & Inline Form -->
+<div class="pt-lg">
+<button class="w-full py-md bg-secondary-container text-on-secondary-fixed-variant rounded-xl font-button text-button hover:opacity-90 transition-all flex items-center justify-center gap-sm focus:ring-2 focus:ring-primary focus:outline-none" id="toggle-edit">
+<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>
+                    Edit Profile
+                </button>
+<div class="mt-lg bg-white border border-surface-variant rounded-xl p-md shadow-sm" id="edit-form">
+<form class="space-y-md">
+<div>
+<label class="block font-medium text-[14px] text-on-background mb-1" for="name">Display Name</label>
+<input class="w-full bg-white border border-surface-variant rounded-lg p-sm text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="name" type="text" value="Julian Rivera"/>
+</div>
+<div>
+<label class="block font-medium text-[14px] text-on-background mb-1" for="bio">Bio</label>
+<textarea class="w-full bg-white border border-surface-variant rounded-lg p-sm text-body-md focus:border-primary focus:ring-1 focus:ring-primary outline-none" id="bio" rows="3">Curator of quiet mornings and shared craft...</textarea>
+</div>
+<button class="w-full py-sm bg-primary text-white rounded-lg font-button text-button hover:opacity-90 transition-all" type="button">Save Changes</button>
+</form>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1">
+<!-- Tabs -->
+<div class="flex gap-xl border-b border-surface-variant mb-xl overflow-x-auto">
+<button class="tab-active py-md font-headline-md text-headline-md whitespace-nowrap transition-colors focus:outline-none focus:text-primary" id="tab-hosting" onclick="switchTab('hosting')">
+                Hosting
+            </button>
+<button class="py-md font-headline-md text-headline-md text-on-surface-variant whitespace-nowrap transition-colors focus:outline-none focus:text-primary" id="tab-joined" onclick="switchTab('joined')">
+                Joined
+            </button>
+</div>
+<!-- Grids Container -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-lg" id="hosting-content">
+<!-- Activity Card 1 -->
+<div class="activity-card bg-white rounded-xl border border-surface-variant overflow-hidden flex relative">
+<div class="w-[6px] h-full bg-primary absolute left-0 top-0"></div>
+<div class="p-lg pl-xl flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-label-mono text-on-tertiary-fixed-variant uppercase tracking-widest">SATURDAY • 10:00 AM</span>
+<div class="flex gap-1">
+<div class="slot-indicator bg-on-secondary-container"></div>
+<div class="slot-indicator bg-on-secondary-container"></div>
+<div class="slot-indicator border border-outline"></div>
+<div class="slot-indicator border border-outline"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">Morning Printmaking &amp; Matcha</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2">A small group session exploring linocut basics over ceremonial grade tea.</p>
+</div>
+<div class="mt-lg flex items-center justify-between">
+<span class="text-primary font-bold">$25</span>
+<button class="text-on-background font-button text-button underline hover:text-primary transition-colors">Details</button>
+</div>
+</div>
+</div>
+<!-- Activity Card 2 -->
+<div class="activity-card bg-white rounded-xl border border-surface-variant overflow-hidden flex relative">
+<div class="w-[6px] h-full bg-primary absolute left-0 top-0"></div>
+<div class="p-lg pl-xl flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-label-mono text-on-tertiary-fixed-variant uppercase tracking-widest">NEXT TUE • 6:30 PM</span>
+<div class="flex gap-1">
+<div class="slot-indicator bg-on-secondary-container"></div>
+<div class="slot-indicator bg-on-secondary-container"></div>
+<div class="slot-indicator bg-on-secondary-container"></div>
+<div class="slot-indicator bg-on-secondary-container"></div>
+</div>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">Type &amp; Wine Social</h3>
+<p class="font-body-md text-on-surface-variant line-clamp-2">Bring your current lettering project or just your love for typography. We'll share wine and feedback.</p>
+</div>
+<div class="mt-lg flex items-center justify-between">
+<span class="text-on-secondary-container font-label-mono text-label-mono flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                            FULL
+                        </span>
+<button class="text-on-background font-button text-button underline hover:text-primary transition-colors">Manage</button>
+</div>
+</div>
+</div>
+</div>
+<div class="hidden grid grid-cols-1 lg:grid-cols-2 gap-lg" id="joined-content">
+<!-- Joined Activity Card 1 -->
+<div class="activity-card bg-white rounded-xl border border-surface-variant overflow-hidden flex relative">
+<div class="w-[6px] h-full bg-secondary absolute left-0 top-0"></div>
+<div class="p-lg pl-xl flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-label-mono text-on-tertiary-fixed-variant uppercase tracking-widest">TOMORROW • 7:00 AM</span>
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-fixed-variant rounded font-label-mono text-[10px]">JOINED</span>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">Dawn River Walk</h3>
+<p class="font-body-md text-on-surface-variant">A 3-mile contemplative walk along the Willamette. Hosted by Sarah W.</p>
+</div>
+<div class="mt-lg flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Attendee" class="w-6 h-6 rounded-full border-2 border-white object-cover" data-alt="A small circular profile image of a woman with curly hair and glasses, wearing a green knit sweater. Professional headshot style with soft focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl-Ypojcav_B-aqAMLed9H2M_eXXhdfvst3WYpMXI24-9l_ecY-Ou7ndoPB-U2OCQjqpoeG-MW_cMmqrN38sWsGxEcWL8-V7Id-0Kcqk0ybS0YbKtMA1TO03tItBRX5zcF-7XO-5yixSus5v6a01rgZk9jCiMaP8CewFAxsWohws1Otm6lMJdkgag73yE6b4DqtZgBPZYp4bjzgpc-W6T3VPZ17-s9xUSNTsj054mkSHo0WRfTfrKc7w5cdcyIwS6IOCVEkXmBoDs"/>
+<img alt="Attendee" class="w-6 h-6 rounded-full border-2 border-white object-cover" data-alt="A small circular profile image of a smiling man with a beard and a beanie. Warm, natural lighting and friendly expression." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAjt1pDnhzwdsw1N22rMfhZ9bBb9c8-Tkgknxt3e_E1ZeEZ3dGkZkU0Gl2XQTO8xV_B7RE7GoIsxCFsnHcVeC0W0Zf_Q2zXYk5sWkU4v_p7O7EWfSEouwdQEKFFp-TMjuJT3qE-5opzHwveo2tME3giuH4I9v8uWgJ9seUONgqdemxDg5JG45XB_uQqkmcugWQ91xx66v7dZtMuctEdMpuXAb1PtJS5FMUG_uiEukc5cQYqTI2BhHwQaQ05K1lAt2qD88xtACj4RU"/>
+<div class="w-6 h-6 rounded-full border-2 border-white bg-surface-container-highest flex items-center justify-center text-[10px] font-bold text-on-surface">+3</div>
+</div>
+<button class="text-on-background font-button text-button underline hover:text-primary transition-colors">Chat</button>
+</div>
+</div>
+</div>
+<!-- Joined Activity Card 2 -->
+<div class="activity-card bg-white rounded-xl border border-surface-variant overflow-hidden flex relative">
+<div class="w-[6px] h-full bg-tertiary absolute left-0 top-0"></div>
+<div class="p-lg pl-xl flex flex-col justify-between flex-1">
+<div>
+<div class="flex justify-between items-start mb-base">
+<span class="font-label-mono text-label-mono text-on-tertiary-fixed-variant uppercase tracking-widest">OCT 24 • 2:00 PM</span>
+<span class="px-2 py-0.5 bg-surface-container text-on-surface-variant rounded font-label-mono text-[10px]">PAST</span>
+</div>
+<h3 class="font-headline-md text-headline-md italic leading-tight mb-sm">Glazed &amp; Confused Ceramics</h3>
+<p class="font-body-md text-on-surface-variant">Introduction to hand-building pinch pots. Hosted by Mudroom Studio.</p>
+</div>
+<div class="mt-lg flex items-center justify-between">
+<span class="text-on-surface-variant font-label-mono text-label-mono italic">Completed</span>
+<button class="text-primary font-button text-button underline transition-colors">Review Host</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Bottom Navigation Shell (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-dim border-t border-surface-variant dark:border-outline-variant">
+<button class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim py-1">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-mono text-[10px]">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim py-1">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-mono text-[10px]">Discover</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim py-1">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-label-mono text-[10px]">Activity</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim bg-secondary-container dark:bg-on-secondary-fixed-variant rounded-full px-4 py-1">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-mono text-[10px]">Profile</span>
+</button>
+</nav>
+<script>
+    function switchTab(tab) {
+        const hostingBtn = document.getElementById('tab-hosting');
+        const joinedBtn = document.getElementById('tab-joined');
+        const hostingContent = document.getElementById('hosting-content');
+        const joinedContent = document.getElementById('joined-content');
+
+        if (tab === 'hosting') {
+            hostingBtn.classList.add('tab-active', 'text-primary');
+            hostingBtn.classList.remove('text-on-surface-variant');
+            joinedBtn.classList.remove('tab-active', 'text-primary');
+            joinedBtn.classList.add('text-on-surface-variant');
+            
+            hostingContent.classList.remove('hidden');
+            joinedContent.classList.add('hidden');
+        } else {
+            joinedBtn.classList.add('tab-active', 'text-primary');
+            joinedBtn.classList.remove('text-on-surface-variant');
+            hostingBtn.classList.remove('tab-active', 'text-primary');
+            hostingBtn.classList.add('text-on-surface-variant');
+            
+            joinedContent.classList.remove('hidden');
+            hostingContent.classList.add('hidden');
+        }
+    }
+
+    const toggleBtn = document.getElementById('toggle-edit');
+    const editForm = document.getElementById('edit-form');
+    
+    toggleBtn.addEventListener('click', () => {
+        const isOpen = editForm.classList.contains('open');
+        if (isOpen) {
+            editForm.classList.remove('open');
+            toggleBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]" data-icon="edit">edit</span>Edit Profile';
+        } else {
+            editForm.classList.add('open');
+            toggleBtn.innerHTML = '<span class="material-symbols-outlined text-[18px]" data-icon="close">close</span>Cancel';
+        }
+    });
+</script>
+</body></html>

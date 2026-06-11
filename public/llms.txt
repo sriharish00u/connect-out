@@ -1,0 +1,9 @@
+# IvVah
+
+> IvVah is a small-group activity app where people post and join low-pressure local gatherings — co-driver runs, chai mates, hackathons, morning runs, and more.
+
+## Pages
+
+- [Activity Feed](/): Browse small-group activities near you, filter by category and date.
+- [Post an Activity](/post): Create a new small-group activity with a live preview card.
+- [Activity Detail](/activity): Example activity detail page with description, location, and members-only chat.

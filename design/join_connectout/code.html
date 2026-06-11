@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Join ConnectOut | Community Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error": "#ba1a1a",
+                      "tertiary-container": "#7d736a",
+                      "tertiary-fixed-dim": "#d1c4ba",
+                      "surface-container-lowest": "#ffffff",
+                      "secondary-fixed-dim": "#8ad7a4",
+                      "secondary-container": "#a5f4bf",
+                      "surface-tint": "#aa3600",
+                      "on-surface-variant": "#5b4138",
+                      "on-tertiary-container": "#fffbff",
+                      "surface-container-highest": "#e9e1dc",
+                      "primary-container": "#d04400",
+                      "inverse-primary": "#ffb59c",
+                      "background": "#fff8f4",
+                      "on-tertiary": "#ffffff",
+                      "on-surface": "#1e1b18",
+                      "on-primary-container": "#fffbff",
+                      "on-primary-fixed": "#390c00",
+                      "on-error-container": "#93000a",
+                      "on-tertiary-fixed": "#211a14",
+                      "on-secondary-fixed": "#00210f",
+                      "surface-dim": "#e0d9d3",
+                      "primary-fixed": "#ffdbcf",
+                      "on-primary-fixed-variant": "#822800",
+                      "on-error": "#ffffff",
+                      "primary-fixed-dim": "#ffb59c",
+                      "on-secondary-container": "#237248",
+                      "secondary": "#1b6c42",
+                      "on-tertiary-fixed-variant": "#4e453d",
+                      "error-container": "#ffdad6",
+                      "surface-variant": "#e9e1dc",
+                      "surface-bright": "#fff8f4",
+                      "outline-variant": "#e3bfb3",
+                      "on-secondary": "#ffffff",
+                      "outline": "#8f7066",
+                      "surface-container": "#f4ece7",
+                      "secondary-fixed": "#a5f4bf",
+                      "primary": "#a63500",
+                      "on-background": "#1e1b18",
+                      "on-primary": "#ffffff",
+                      "inverse-on-surface": "#f7efea",
+                      "surface-container-low": "#faf2ed",
+                      "surface": "#fff8f4",
+                      "surface-container-high": "#efe7e1",
+                      "on-secondary-fixed-variant": "#00522e",
+                      "inverse-surface": "#33302c",
+                      "tertiary": "#645a52",
+                      "tertiary-fixed": "#eee0d5"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "24px",
+                      "xs": "4px",
+                      "gutter": "16px",
+                      "base": "8px",
+                      "sm": "8px",
+                      "xxl": "48px",
+                      "container-margin": "24px",
+                      "xl": "32px",
+                      "md": "16px"
+              },
+              "fontFamily": {
+                      "headline-lg-mobile": ["Fraunces"],
+                      "body-md": ["Inter"],
+                      "headline-lg": ["Fraunces"],
+                      "label-mono": ["JetBrains Mono"],
+                      "display-hero": ["Fraunces"],
+                      "headline-md": ["Fraunces"],
+                      "button": ["Inter"],
+                      "body-lg": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                      "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                      "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                      "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #F7F4EF;
+            color: #1e1b18;
+            -webkit-font-smoothing: antialiased;
+        }
+        .paper-texture {
+            background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-focus-ring:focus {
+            outline: none;
+            border-color: #E8500A;
+            box-shadow: 0 0 0 1px #E8500A;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md min-h-screen flex flex-col justify-center items-center py-xxl paper-texture" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E&quot;);">
+<main class="w-full max-w-lg px-container-margin">
+<!-- Brand Identity -->
+<div class="text-center mb-xl">
+<h1 class="font-headline-md text-headline-md font-bold text-primary mb-xs">ConnectOut</h1>
+<p class="font-label-mono text-label-mono text-tertiary uppercase tracking-widest">A Space for Intentional Connection</p>
+</div>
+<!-- Centralized Registration Card -->
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl shadow-sm transition-all duration-300 hover:shadow-md">
+<header class="mb-xl">
+<h2 class="font-headline-md text-headline-md italic font-semibold text-on-surface">Join the community</h2>
+<p class="font-body-md text-on-surface-variant mt-xs">Create your profile to start exploring local activities.</p>
+</header>
+<form class="space-y-md" onsubmit="event.preventDefault();">
+<!-- Name Field -->
+<div>
+<label class="block font-button text-[14px] text-on-surface mb-xs" for="full_name">Full Name</label>
+<input class="w-full bg-white border border-outline-variant rounded-lg px-md py-sm font-body-md text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary focus:border-primary transition-all focus:outline-none" id="full_name" name="name" placeholder="Elias Thorne" required="" type="text"/>
+</div>
+<!-- Email Field -->
+<div>
+<label class="block font-button text-[14px] text-on-surface mb-xs" for="email">Email Address</label>
+<input class="w-full bg-white border border-outline-variant rounded-lg px-md py-sm font-body-md text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary focus:border-primary transition-all focus:outline-none" id="email" name="email" placeholder="elias@example.com" required="" type="email"/>
+</div>
+<!-- Phone Field -->
+<div>
+<label class="block font-button text-[14px] text-on-surface mb-xs" for="phone">Phone number</label>
+<div class="relative">
+<span class="absolute left-md top-1/2 -translate-y-1/2 text-on-surface-variant font-label-mono text-label-mono">+1</span>
+<input class="w-full bg-white border border-outline-variant rounded-lg pl-xl pr-md py-sm font-body-md text-on-surface placeholder:text-outline focus:ring-1 focus:ring-primary focus:border-primary transition-all focus:outline-none" id="phone" name="phone" placeholder="(555) 000-0000" required="" type="tel"/>
+</div>
+</div>
+<!-- Privacy/Guidelines Notice -->
+<div class="flex items-start gap-sm py-sm">
+<span class="material-symbols-outlined text-secondary text-[20px] shrink-0" data-icon="verified_user">verified_user</span>
+<p class="font-body-md text-[13px] text-on-surface-variant leading-relaxed">
+                        By joining, you agree to our 
+                        <a class="text-primary underline decoration-primary/30 hover:decoration-primary transition-all" href="#">Community Guidelines</a> 
+                        designed to keep ConnectOut safe and intentional.
+                    </p>
+</div>
+<!-- Primary Action -->
+<button class="w-full bg-primary text-on-primary font-button py-md rounded-xl hover:opacity-90 active:scale-[0.98] transition-all flex justify-center items-center gap-sm mt-md" type="submit">
+                    Join ConnectOut
+                    <span class="material-symbols-outlined text-[18px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<!-- Divider -->
+<div class="relative flex py-md items-center">
+<div class="flex-grow border-t border-outline-variant"></div>
+<span class="flex-shrink mx-md font-label-mono text-[10px] text-tertiary uppercase">Or connect via</span>
+<div class="flex-grow border-t border-outline-variant"></div>
+</div>
+<!-- Social Sign-up -->
+<button class="w-full border border-outline-variant bg-white text-on-surface font-button py-md rounded-xl hover:bg-surface-container transition-colors flex justify-center items-center gap-sm" type="button">
+<svg class="w-5 h-5" viewbox="0 0 24 24">
+<path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"></path>
+<path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"></path>
+<path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"></path>
+<path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"></path>
+</svg>
+                    Continue with Google
+                </button>
+</form>
+<!-- Secondary Action -->
+<div class="mt-xl text-center">
+<p class="font-body-md text-on-surface-variant">
+                    Already have an account? 
+                    <a class="font-button text-primary hover:underline transition-all" href="#">Log in</a>
+</p>
+</div>
+</div>
+<!-- Aesthetic Imagery Footer (Asymmetric Layout) -->
+<div class="mt-xxl grid grid-cols-2 gap-md opacity-80">
+<div class="relative h-32 rounded-lg overflow-hidden border border-outline-variant">
+<img alt="A warm, lifestyle photograph capturing a diverse group of four friends laughing and sharing coffee around a rustic wooden table in a sun-drenched outdoor garden. The lighting is soft and golden, characteristic of a late afternoon in spring. The composition feels intimate and authentic, emphasizing the brand's focus on human connection and community warmth." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsqed4k62Yp22xijE7kcmy-OaJnjXunAR5cysUokTBR-Ub9xnzPkNFOaGV3WScU-zKJAiQwGQ6Mix_b8L32hAZYgAdYzevNiVKkp0DNdMVPxSRBZzxiXhobUSeD-dCL8he_T8JDybLnwjRzEHkvNBvQy1tbp7N3cdBEPIBycny1AyO7iAak6mbYUTJH5qYdo49gk9DytwfXZEygrrnWGgQvkCUwJk-4YCiJOkrl4cxe7PmiMEnEaFLYgparsKLUgXDUusgAvn62TM"/>
+</div>
+<div class="relative h-32 rounded-lg overflow-hidden border border-outline-variant translate-y-4">
+<img alt="A close-up shot of two people engaged in a creative workshop, their hands working together on a craft project over a paper-textured surface. The scene is bright and airy with natural light pouring in from a nearby window. The color palette is dominated by soft earthy tones like clay and warm whites, creating a grounded and inviting atmosphere consistent with the ConnectOut brand identity." class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgewAbUTqPWmYO2WwA8ySm_5xrxmZ8vEnWCQSHE7GlVc01daK8JnyhbEPpUW4K_QTfc0XUfpOaNY_0XkGj00HxNeVcGvq0K2VZ8rX3MvupDzSU-itaE9J_pGEnXxTaIQ-lzfDxr4QsPlTPFlWarbTHlvB1FZLM6F5PskYR1cFnMHZoqAHQonGb9mGYvzsqOZEdSrUFatg-AoTV3-nQYYcfqgBwNN2-mpTvNVUp1_RqHOte8o83qFgtIVcs6O25pMK6jd-SsKHUZBI"/>
+</div>
+</div>
+</main>
+<!-- Micro-interaction Scripts -->
+<script>
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                input.parentElement.closest('div').classList.add('scale-[1.01]');
+            });
+            input.addEventListener('blur', () => {
+                input.parentElement.closest('div').classList.remove('scale-[1.01]');
+            });
+        });
+
+        // Simple button active state feedback
+        const btn = document.querySelector('button[type="submit"]');
+        btn.addEventListener('click', function() {
+            const originalText = this.innerHTML;
+            this.innerHTML = '<span class="material-symbols-outlined animate-spin" data-icon="progress_activity">progress_activity</span> Joining...';
+            this.classList.add('opacity-80');
+            
+            setTimeout(() => {
+                this.innerHTML = originalText;
+                this.classList.remove('opacity-80');
+            }, 2000);
+        });
+    </script>
+</body></html>

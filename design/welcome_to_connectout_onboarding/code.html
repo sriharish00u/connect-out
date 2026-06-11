@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ConnectOut | Welcome Home</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "inverse-surface": "#33302c",
+                "on-secondary-container": "#237248",
+                "surface": "#fff8f4",
+                "on-background": "#1e1b18",
+                "surface-variant": "#e9e1dc",
+                "on-error": "#ffffff",
+                "primary-fixed": "#ffdbcf",
+                "on-surface-variant": "#5b4138",
+                "surface-container-high": "#efe7e1",
+                "surface-bright": "#fff8f4",
+                "secondary-fixed-dim": "#8ad7a4",
+                "on-error-container": "#93000a",
+                "on-tertiary": "#ffffff",
+                "on-secondary": "#ffffff",
+                "on-primary": "#ffffff",
+                "surface-dim": "#e0d9d3",
+                "surface-container-low": "#faf2ed",
+                "error": "#ba1a1a",
+                "surface-container-lowest": "#ffffff",
+                "inverse-on-surface": "#f7efea",
+                "primary": "#a63500",
+                "on-tertiary-fixed-variant": "#4e453d",
+                "background": "#fff8f4",
+                "on-primary-fixed": "#390c00",
+                "tertiary-container": "#7d736a",
+                "tertiary-fixed-dim": "#d1c4ba",
+                "outline-variant": "#e3bfb3",
+                "surface-container": "#f4ece7",
+                "tertiary-fixed": "#eee0d5",
+                "on-secondary-fixed": "#00210f",
+                "on-tertiary-container": "#fffbff",
+                "primary-fixed-dim": "#ffb59c",
+                "error-container": "#ffdad6",
+                "outline": "#8f7066",
+                "secondary-container": "#a5f4bf",
+                "on-primary-container": "#fffbff",
+                "on-surface": "#1e1b18",
+                "surface-tint": "#aa3600",
+                "secondary-fixed": "#a5f4bf",
+                "on-tertiary-fixed": "#211a14",
+                "on-secondary-fixed-variant": "#00522e",
+                "surface-container-highest": "#e9e1dc",
+                "inverse-primary": "#ffb59c",
+                "tertiary": "#645a52",
+                "on-primary-fixed-variant": "#822800",
+                "secondary": "#1b6c42",
+                "primary-container": "#d04400"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "xxl": "48px",
+                "md": "16px",
+                "xs": "4px",
+                "container-margin": "24px",
+                "base": "8px",
+                "gutter": "16px",
+                "xl": "32px",
+                "sm": "8px",
+                "lg": "24px"
+            },
+            "fontFamily": {
+                "headline-lg": ["Fraunces"],
+                "label-mono": ["JetBrains Mono"],
+                "display-hero": ["Fraunces"],
+                "body-lg": ["Inter"],
+                "headline-md": ["Fraunces"],
+                "body-md": ["Inter"],
+                "button": ["Inter"]
+            },
+            "fontSize": {
+                "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-clay { background-color: #F7F4EF; }
+        .interest-tile.active {
+            border-color: #a63500;
+            background-color: #fff0e8;
+        }
+        .step-transition {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .modal-overlay {
+            backdrop-filter: blur(4px);
+            background-color: rgba(30, 27, 24, 0.4);
+        }
+    </style>
+</head>
+<body class="bg-clay text-on-surface min-h-screen flex items-center justify-center p-4">
+<!-- Mock Content Behind Modal to Show Context -->
+<div aria-hidden="true" class="fixed inset-0 overflow-hidden opacity-30 select-none pointer-events-none">
+<div class="max-w-7xl mx-auto px-container-margin py-xxl">
+<h1 class="font-display-hero text-display-hero mb-lg">Your Feed</h1>
+<div class="grid grid-cols-3 gap-lg">
+<div class="h-64 bg-white border border-surface-variant rounded-xl p-md"></div>
+<div class="h-64 bg-white border border-surface-variant rounded-xl p-md"></div>
+<div class="h-64 bg-white border border-surface-variant rounded-xl p-md"></div>
+</div>
+</div>
+</div>
+<!-- Onboarding Modal Container -->
+<div aria-labelledby="modal-title" aria-modal="true" class="fixed inset-0 z-[100] flex items-center justify-center p-4 modal-overlay" id="onboardingModal" role="dialog">
+<div class="bg-surface w-full max-w-lg rounded-xl overflow-hidden shadow-xl border border-surface-variant flex flex-col relative" style="min-height: 520px;">
+<!-- Step 3 Close Button (Initially Hidden) -->
+<button aria-label="Close modal" class="absolute top-4 right-4 p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors hidden" id="closeModal">
+<span class="material-symbols-outlined">close</span>
+</button>
+<!-- Progress Bar -->
+<div class="px-lg pt-lg flex items-center justify-between">
+<div class="font-headline-md text-primary italic">ConnectOut</div>
+<div aria-valuemax="3" aria-valuemin="1" class="flex gap-2" id="progress-indicator" role="progressbar">
+<span aria-label="Step 1 active" class="w-2 h-2 rounded-full bg-primary"></span>
+<span aria-label="Step 2 inactive" class="w-2 h-2 rounded-full bg-surface-variant"></span>
+<span aria-label="Step 3 inactive" class="w-2 h-2 rounded-full bg-surface-variant"></span>
+</div>
+</div>
+<!-- Modal Content (Step 1) -->
+<div class="step-transition px-lg py-xl flex-1 flex flex-col items-center text-center" id="step1">
+<h2 class="font-headline-md text-headline-md italic text-primary mb-md" id="modal-title">What's your name?</h2>
+<p class="font-body-md text-on-surface-variant mb-xl max-w-sm">We'd love to know who we're talking to and where you're joining ConnectOut from.</p>
+<div class="w-full space-y-lg max-w-xs text-left">
+<div class="space-y-xs">
+<label class="font-body-md text-on-surface font-medium px-xs" for="user-name">Your First Name</label>
+<input class="w-full px-md py-sm border border-surface-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md" id="user-name" placeholder="e.g. Julian" type="text"/>
+</div>
+<div class="space-y-xs">
+<label class="font-body-md text-on-surface font-medium px-xs" for="user-city">Your City</label>
+<input class="w-full px-md py-sm border border-surface-variant rounded-lg focus:ring-1 focus:ring-primary focus:border-primary outline-none transition-all font-body-md" id="user-city" placeholder="e.g. Amsterdam" type="text"/>
+</div>
+</div>
+</div>
+<!-- Modal Content (Step 2 - Hidden Initially) -->
+<div class="step-transition px-lg py-xl flex-1 flex flex-col items-center text-center hidden" id="step2">
+<h2 class="font-headline-md text-headline-md italic text-primary mb-md">Pick your interests</h2>
+<p class="font-body-md text-on-surface-variant mb-lg">Select at least <span class="font-bold text-primary">3 categories</span> to personalize your ConnectOut experience.</p>
+<div class="grid grid-cols-3 gap-sm w-full max-w-sm" id="interest-grid">
+<!-- Interest Tiles -->
+<button class="interest-tile group flex flex-col items-center justify-center p-md bg-white border border-surface-variant rounded-xl hover:border-outline transition-all" data-value="outdoors">
+<span class="text-2xl mb-xs">🌲</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Outdoors</span>
+</button>
+<button class="interest-tile group flex flex-col items-center justify-center p-md bg-white border border-surface-variant rounded-xl hover:border-outline transition-all" data-value="culinary">
+<span class="text-2xl mb-xs">🍳</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Culinary</span>
+</button>
+<button class="interest-tile group flex flex-col items-center justify-center p-md bg-white border border-surface-variant rounded-xl hover:border-outline transition-all" data-value="creative">
+<span class="text-2xl mb-xs">🎨</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Creative</span>
+</button>
+<button class="interest-tile group flex flex-col items-center justify-center p-md bg-white border border-surface-variant rounded-xl hover:border-outline transition-all" data-value="wellness">
+<span class="text-2xl mb-xs">🧘</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Wellness</span>
+</button>
+<button class="interest-tile group flex flex-col items-center justify-center p-md bg-white border border-surface-variant rounded-xl hover:border-outline transition-all" data-value="tech">
+<span class="text-2xl mb-xs">💻</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Tech</span>
+</button>
+<button class="interest-tile group flex flex-col items-center justify-center p-md bg-white border border-surface-variant rounded-xl hover:border-outline transition-all" data-value="social">
+<span class="text-2xl mb-xs">🥂</span>
+<span class="font-label-mono text-label-mono text-on-surface-variant">Social</span>
+</button>
+</div>
+</div>
+<!-- Modal Content (Step 3 - Hidden Initially) -->
+<div class="step-transition px-lg py-xl flex-1 flex flex-col items-center text-center hidden" id="step3">
+<div class="w-16 h-16 bg-secondary-container rounded-full flex items-center justify-center mb-lg">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl">celebration</span>
+</div>
+<h2 class="font-headline-md text-headline-md italic text-primary mb-md">Welcome to ConnectOut, <span id="display-name">Julian</span>!</h2>
+<p class="font-body-md text-on-surface-variant mb-xl">Your neighborhood in <span class="underline" id="display-city">Amsterdam</span> is buzzing. Here's a glimpse of what's waiting for you.</p>
+<!-- Personalized Preview Card -->
+<div class="w-full bg-white border border-surface-variant rounded-xl overflow-hidden flex text-left shadow-sm mb-base">
+<div class="w-1.5 bg-secondary"></div>
+<div class="p-md flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-surface-container flex-shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">local_fire_department</span>
+</div>
+<div>
+<div class="font-label-mono text-[10px] text-secondary font-bold uppercase tracking-wider mb-xs">New for you</div>
+<h3 class="font-headline-md text-body-md font-semibold italic text-on-surface leading-tight">Sunset Terrace Social</h3>
+<p class="font-body-md text-xs text-on-surface-variant mt-0.5">3 spots left • 0.4 miles away</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer Actions -->
+<div class="px-lg pb-lg">
+<button class="w-full py-md px-lg bg-primary text-white font-button rounded-xl hover:bg-primary-container disabled:opacity-50 disabled:cursor-not-allowed transition-all transform active:scale-95 shadow-md" id="nextBtn">
+                    Next
+            </button>
+</div>
+</div>
+</div>
+<script>
+        const state = {
+            currentStep: 1,
+            name: '',
+            city: '',
+            interests: []
+        };
+
+        const steps = ['step1', 'step2', 'step3'];
+        const nextBtn = document.getElementById('nextBtn');
+        const closeModal = document.getElementById('closeModal');
+        const progressDots = document.querySelectorAll('#progress-indicator span');
+        const interestTiles = document.querySelectorAll('.interest-tile');
+        const userNameInput = document.getElementById('user-name');
+        const userCityInput = document.getElementById('user-city');
+
+        // Initial validation
+        validateStep();
+
+        // Input Listeners
+        userNameInput.addEventListener('input', (e) => {
+            state.name = e.target.value.trim();
+            validateStep();
+        });
+
+        userCityInput.addEventListener('input', (e) => {
+            state.city = e.target.value.trim();
+            validateStep();
+        });
+
+        // Interest Tile Listeners
+        interestTiles.forEach(tile => {
+            tile.addEventListener('click', () => {
+                const value = tile.dataset.value;
+                if (state.interests.includes(value)) {
+                    state.interests = state.interests.filter(i => i !== value);
+                    tile.classList.remove('active', 'border-primary', 'bg-primary-fixed');
+                } else {
+                    state.interests.push(value);
+                    tile.classList.add('active', 'border-primary', 'bg-primary-fixed');
+                }
+                validateStep();
+            });
+        });
+
+        function validateStep() {
+            if (state.currentStep === 1) {
+                nextBtn.disabled = !(state.name.length > 1 && state.city.length > 2);
+            } else if (state.currentStep === 2) {
+                nextBtn.disabled = state.interests.length < 3;
+            } else {
+                nextBtn.disabled = false;
+            }
+        }
+
+        function updateUI() {
+            // Hide all steps
+            steps.forEach(id => document.getElementById(id).classList.add('hidden'));
+            
+            // Show current step
+            document.getElementById(steps[state.currentStep - 1]).classList.remove('hidden');
+
+            // Update Progress Dots
+            progressDots.forEach((dot, idx) => {
+                if (idx + 1 === state.currentStep) {
+                    dot.className = 'w-2 h-2 rounded-full bg-primary';
+                    dot.setAttribute('aria-label', `Step ${idx + 1} active`);
+                } else if (idx + 1 < state.currentStep) {
+                    dot.className = 'w-2 h-2 rounded-full bg-on-secondary-container';
+                    dot.setAttribute('aria-label', `Step ${idx + 1} completed`);
+                } else {
+                    dot.className = 'w-2 h-2 rounded-full bg-surface-variant';
+                    dot.setAttribute('aria-label', `Step ${idx + 1} inactive`);
+                }
+            });
+
+            // Specific UI logic per step
+            if (state.currentStep === 3) {
+                nextBtn.innerText = "Explore ConnectOut";
+                closeModal.classList.remove('hidden');
+                document.getElementById('display-name').innerText = state.name;
+                document.getElementById('display-city').innerText = state.city;
+            } else {
+                nextBtn.innerText = "Next";
+                closeModal.classList.add('hidden');
+            }
+
+            validateStep();
+        }
+
+        nextBtn.addEventListener('click', () => {
+            if (state.currentStep < 3) {
+                state.currentStep++;
+                updateUI();
+            } else {
+                // Final completion action
+                const modal = document.getElementById('onboardingModal');
+                modal.classList.add('opacity-0');
+                modal.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    // Simulation: Background content becomes fully visible
+                    document.querySelector('.fixed.inset-0.overflow-hidden').classList.remove('opacity-30');
+                    document.querySelector('.fixed.inset-0.overflow-hidden').classList.add('opacity-100');
+                }, 500);
+            }
+        });
+
+        closeModal.addEventListener('click', () => {
+             const modal = document.getElementById('onboardingModal');
+             modal.style.display = 'none';
+        });
+
+        // Accessibility: Trap focus in modal (simplified)
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                // Real focus trapping would go here
+            }
+            if (e.key === 'Escape' && state.currentStep === 3) {
+                closeModal.click();
+            }
+        });
+    </script>
+</body></html>

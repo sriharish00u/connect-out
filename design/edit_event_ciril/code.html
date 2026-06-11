@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Edit Event | Kindrd</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,400;1,600&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-tertiary-container": "#fffbff",
+                        "surface-bright": "#fff8f4",
+                        "tertiary-fixed": "#eee0d5",
+                        "outline-variant": "#e3bfb3",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#8ad7a4",
+                        "background": "#fff8f4",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed": "#00210f",
+                        "on-secondary-container": "#237248",
+                        "surface-variant": "#e9e1dc",
+                        "primary-container": "#d04400",
+                        "on-background": "#1e1b18",
+                        "surface": "#fff8f4",
+                        "secondary": "#1b6c42",
+                        "outline": "#8f7066",
+                        "surface-dim": "#e0d9d3",
+                        "inverse-primary": "#ffb59c",
+                        "on-surface": "#1e1b18",
+                        "error-container": "#ffdad6",
+                        "surface-tint": "#aa3600",
+                        "surface-container-highest": "#e9e1dc",
+                        "surface-container": "#f4ece7",
+                        "on-surface-variant": "#5b4138",
+                        "secondary-container": "#a5f4bf",
+                        "primary-fixed": "#ffdbcf",
+                        "on-secondary-fixed-variant": "#00522e",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#7d736a",
+                        "on-primary-container": "#fffbff",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed": "#390c00",
+                        "on-tertiary-fixed-variant": "#4e453d",
+                        "primary": "#a63500",
+                        "on-secondary": "#ffffff",
+                        "inverse-surface": "#33302c",
+                        "secondary-fixed": "#a5f4bf",
+                        "on-tertiary-fixed": "#211a14",
+                        "surface-container-low": "#faf2ed",
+                        "primary-fixed-dim": "#ffb59c",
+                        "inverse-on-surface": "#f7efea",
+                        "tertiary": "#645a52",
+                        "error": "#ba1a1a",
+                        "surface-container-high": "#efe7e1",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#822800",
+                        "tertiary-fixed-dim": "#d1c4ba"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "md": "16px",
+                        "gutter": "16px",
+                        "base": "8px",
+                        "xs": "4px",
+                        "sm": "8px",
+                        "lg": "24px",
+                        "xl": "32px",
+                        "container-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Fraunces"],
+                        "headline-md": ["Fraunces"],
+                        "body-md": ["Inter"],
+                        "label-mono": ["JetBrains Mono"],
+                        "button": ["Inter"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .accent-stripe {
+            border-left: 6px solid #a63500;
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #a63500 !important;
+            box-shadow: 0 0 0 1px #a63500;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen font-body-md">
+<!-- Top Navigation Bar -->
+<header class="w-full top-0 sticky z-50 bg-surface dark:bg-surface-dim border-b border-outline-variant dark:border-outline">
+<div class="flex justify-between items-center px-lg py-md max-w-7xl mx-auto">
+<div class="flex items-center gap-xl">
+<span class="text-headline-md font-headline-md font-bold text-primary dark:text-primary-fixed">Kindrd</span>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-label-mono text-label-mono" href="#">EXPLORE</a>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-label-mono text-label-mono" href="#">COMMUNITY</a>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed transition-colors duration-200 font-label-mono text-label-mono" href="#">JOURNAL</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="flex items-center gap-sm px-md py-sm rounded-lg bg-primary text-on-primary font-button text-button active:scale-95 transition-all">
+<span class="material-symbols-outlined text-[20px]">add</span>
+                    Post Activity
+                </button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-outline-variant">
+<img alt="User Profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuApbwMxAhH96Srjz_LGgDG-oDszDwxaR4ukql0XSHUEYAwYRBTMELgYiTZLNoXlAnrL9BmN2DMq1K3dCZEVUOKiN-c3ciwNZyrDJMKQAorqNGab8CMQu7mQTcRQZH9-XB3UfBGS60WQkQEsokFcFYn5tFw3zIiEXpTzwXyl_gcKSUmkDlIIo8QiZg9xTzgc81l3jf-34k-SayLeesXyQuimav6BHCmkPTIUDR3rzmgDUhNMA4EyP_xQsgEbKO5wuxIOEouquVwSeHM"/>
+</div>
+</div>
+</div>
+</header>
+<main class="max-w-3xl mx-auto px-container-margin py-xxl">
+<!-- Header Section -->
+<div class="mb-xl">
+<nav class="flex items-center gap-xs text-on-surface-variant mb-md">
+<a class="hover:text-primary transition-colors flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<span class="font-label-mono text-label-mono">BACK TO EVENT</span>
+</a>
+</nav>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Edit Event</h1>
+<p class="text-on-surface-variant mt-sm font-body-md">Refine the details for your upcoming gathering. Changes will be updated immediately for all participants.</p>
+</div>
+<!-- Main Form Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm accent-stripe overflow-hidden border border-outline-variant">
+<form class="p-xl space-y-xl">
+<!-- Basics Section -->
+<section class="space-y-lg">
+<div class="flex items-center gap-sm pb-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary">info</span>
+<h2 class="font-headline-md text-headline-md italic">Event Basics</h2>
+</div>
+<div class="grid grid-cols-1 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Event Title</label>
+<input class="w-full px-md py-sm bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary transition-all" placeholder="e.g. Morning Yoga in the Park" type="text" value="Evening Football Scrimmage"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Category</label>
+<select class="w-full px-md py-sm bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary appearance-none">
+<option selected="" value="football">Football</option>
+<option value="cricket">Cricket</option>
+<option value="basketball">Basketball</option>
+<option value="running">Running</option>
+<option value="study_group">Study Group</option>
+<option value="volunteer">Volunteer</option>
+<option value="community_meeting">Community Meeting</option>
+<option value="social_cause">Social Cause</option>
+<option value="blood_donation">Blood Donation</option>
+<option value="general">General</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Logistics Section -->
+<section class="space-y-lg">
+<div class="flex items-center gap-sm pb-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary">location_on</span>
+<h2 class="font-headline-md text-headline-md italic">Logistics</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Location</label>
+<div class="relative">
+<input class="w-full px-md py-sm pl-10 bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary transition-all" placeholder="Enter venue name or address" type="text" value="Race Course Road"/>
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]">map</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Date</label>
+<input class="w-full px-md py-sm bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary transition-all" type="date" value="2024-11-20"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Time</label>
+<input class="w-full px-md py-sm bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary transition-all" type="time" value="18:30"/>
+</div>
+</div>
+</section>
+<!-- Description & Details -->
+<section class="space-y-lg">
+<div class="flex items-center gap-sm pb-sm border-b border-outline-variant">
+<span class="material-symbols-outlined text-primary">description</span>
+<h2 class="font-headline-md text-headline-md italic">Details</h2>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Description</label>
+<textarea class="w-full px-md py-sm bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary transition-all" placeholder="Tell people what to expect, what to bring, etc." rows="4">Weekly friendly scrimmage. All skill levels welcome. We usually play 7-a-side depending on turnout. Bring water and a spare white/dark shirt if possible.</textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Max Participants</label>
+<input class="w-full px-md py-sm bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary transition-all" placeholder="No limit" type="number" value="14"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider">Event Privacy</label>
+<select class="w-full px-md py-sm bg-white border border-outline-variant rounded-lg font-body-md focus:ring-1 focus:ring-primary appearance-none">
+<option selected="" value="public">Public (Anyone can join)</option>
+<option value="private">Private (Invite only)</option>
+<option value="curated">Curated (Approval needed)</option>
+</select>
+</div>
+</div>
+</section>
+<!-- Form Actions -->
+<div class="pt-xl border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-lg">
+<a class="text-on-surface-variant hover:text-error transition-colors font-body-md underline decoration-outline-variant underline-offset-4" href="#">Discard changes</a>
+<div class="flex items-center gap-md w-full md:w-auto">
+<button class="flex-1 md:flex-none px-xl py-md rounded-xl bg-primary-fixed text-on-primary-fixed font-button text-button hover:bg-primary-fixed-dim transition-all" type="button">
+                            Preview
+                        </button>
+<button class="flex-1 md:flex-none px-xl py-md rounded-xl bg-primary text-on-primary font-button text-button shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all" type="submit">
+                            Save Changes
+                        </button>
+</div>
+</div>
+</form>
+</div>
+<!-- Help Section -->
+<div class="mt-xl p-lg rounded-xl bg-surface-container border border-outline-variant flex gap-md items-start">
+<span class="material-symbols-outlined text-secondary">help_outline</span>
+<div>
+<h4 class="font-headline-md italic text-[18px]">Need help?</h4>
+<p class="text-on-surface-variant text-sm mt-1">If you need to cancel this event entirely, you can do so from the advanced settings in your dashboard. Participants will be notified via email.</p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container dark:bg-surface-container-low border-t border-outline-variant dark:border-outline mt-xxl">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-xl px-lg max-w-7xl mx-auto">
+<div class="flex flex-col gap-md">
+<span class="font-headline-md text-headline-md text-on-surface dark:text-on-surface-variant">Kindrd</span>
+<p class="font-body-md text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim max-w-xs">Connecting humans through intentional shared experiences. Real people, real places, real presence.</p>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-mono text-label-mono text-primary uppercase mb-2">Explore</span>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-opacity" href="#">Our Story</a>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-opacity" href="#">Journal</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-mono text-label-mono text-primary uppercase mb-2">Legal</span>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-opacity" href="#">Community Guidelines</a>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-opacity" href="#">Safety</a>
+</div>
+<div class="flex flex-col gap-sm">
+<span class="font-label-mono text-label-mono text-primary uppercase mb-2">Help</span>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-opacity" href="#">Support</a>
+<a class="text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim hover:text-primary dark:hover:text-primary-fixed underline transition-opacity" href="#">Contact Us</a>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-lg mt-xl pt-lg border-t border-outline-variant/30 text-center">
+<p class="font-label-mono text-label-mono text-on-tertiary-fixed-variant/60">© 2024 Kindrd. Built for human connection.</p>
+</div>
+</footer>
+<script>
+        // Simple form interaction
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<span class="material-symbols-outlined animate-spin">sync</span> Saving...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.innerHTML = '<span class="material-symbols-outlined">check</span> Saved!';
+                btn.classList.replace('bg-primary', 'bg-secondary');
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.classList.replace('bg-secondary', 'bg-primary');
+                    btn.disabled = false;
+                }, 2000);
+            }, 1000);
+        });
+    </script>
+</body></html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Notifications | Kindrd</title>
+<!-- Google Fonts: Fraunces, Inter, JetBrains Mono -->
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "inverse-surface": "#33302c",
+                    "on-secondary-container": "#237248",
+                    "surface": "#fff8f4",
+                    "on-background": "#1e1b18",
+                    "surface-variant": "#e9e1dc",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#ffdbcf",
+                    "on-surface-variant": "#5b4138",
+                    "surface-container-high": "#efe7e1",
+                    "surface-bright": "#fff8f4",
+                    "secondary-fixed-dim": "#8ad7a4",
+                    "on-error-container": "#93000a",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary": "#ffffff",
+                    "on-primary": "#ffffff",
+                    "surface-dim": "#e0d9d3",
+                    "surface-container-low": "#faf2ed",
+                    "error": "#ba1a1a",
+                    "surface-container-lowest": "#ffffff",
+                    "inverse-on-surface": "#f7efea",
+                    "primary": "#a63500",
+                    "on-tertiary-fixed-variant": "#4e453d",
+                    "background": "#fff8f4",
+                    "on-primary-fixed": "#390c00",
+                    "tertiary-container": "#7d736a",
+                    "tertiary-fixed-dim": "#d1c4ba",
+                    "outline-variant": "#e3bfb3",
+                    "surface-container": "#f4ece7",
+                    "tertiary-fixed": "#eee0d5",
+                    "on-secondary-fixed": "#00210f",
+                    "on-tertiary-container": "#fffbff",
+                    "primary-fixed-dim": "#ffb59c",
+                    "error-container": "#ffdad6",
+                    "outline": "#8f7066",
+                    "secondary-container": "#a5f4bf",
+                    "on-primary-container": "#fffbff",
+                    "on-surface": "#1e1b18",
+                    "surface-tint": "#aa3600",
+                    "secondary-fixed": "#a5f4bf",
+                    "on-tertiary-fixed": "#211a14",
+                    "on-secondary-fixed-variant": "#00522e",
+                    "surface-container-highest": "#e9e1dc",
+                    "inverse-primary": "#ffb59c",
+                    "tertiary": "#645a52",
+                    "on-primary-fixed-variant": "#822800",
+                    "secondary": "#1b6c42",
+                    "primary-container": "#d04400"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "md": "16px",
+                    "xs": "4px",
+                    "container-margin": "24px",
+                    "base": "8px",
+                    "gutter": "16px",
+                    "xl": "32px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-lg": ["Fraunces"],
+                    "label-mono": ["JetBrains Mono"],
+                    "headline-lg-mobile": ["Fraunces"],
+                    "display-hero": ["Fraunces"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Fraunces"],
+                    "body-md": ["Inter"],
+                    "button": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                    "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .filled-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+        .activity-card-edge {
+            box-shadow: inset 6px 0 0 0 currentColor;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen pb-24 md:pb-0">
+<!-- TopNavBar -->
+<header class="bg-surface dark:bg-surface-dim border-b border-surface-variant dark:border-outline-variant flex justify-between items-center w-full px-container-margin py-base z-50 sticky top-0">
+<div class="flex items-center gap-4">
+<span class="font-headline-md text-headline-md italic text-primary dark:text-primary-fixed-dim">Kindrd</span>
+</div>
+<!-- Search Bar (on_left context for desktop) -->
+<div class="hidden md:flex flex-1 max-w-md mx-xl">
+<div class="relative w-full">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+<input class="w-full bg-surface-container-low border border-surface-variant rounded-xl py-2 pl-10 pr-4 focus:ring-1 focus:ring-primary focus:border-primary outline-none text-body-md" placeholder="Search activities..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative group">
+<button class="material-symbols-outlined text-primary dark:text-primary-fixed-dim p-2 rounded-full hover:bg-surface-container-low transition-colors duration-100 scale-95 duration-100">notifications</button>
+<!-- Unread Badge -->
+<span class="absolute top-1.5 right-1.5 bg-primary text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full border-2 border-surface">3</span>
+</div>
+<button class="material-symbols-outlined text-on-surface-variant p-2 rounded-full hover:bg-surface-container-low transition-colors duration-100">search</button>
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAKbYNhyn-kkXz_lVZn8tchy4FB-QJIAAEIpgIz_B6pzH9vE0-sw91RVqthecXf2nctETSEnZb_wFrmVXSxbcScqbm1o1ETOVqOsKwiSRHtPZUWzJIn7BGtH0zpi6qCwlcRYktOn3DajT2NAG5_r_2utGHioqXT--kHjtZHNFnS-k3hdqnYXJiCbs26AaZ6kNagJargETjXBtmlbsx72H-DYaZr77kjMMmlgIxg8ft0AQ9Xl2u7ktOWAqYzXDWSkK-A5PoP_hb3ACE"/>
+</div>
+</div>
+</header>
+<main class="max-w-2xl mx-auto px-container-margin py-xl">
+<!-- Header Actions -->
+<div class="flex items-center justify-between mb-xl">
+<h1 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg italic">Notifications</h1>
+<button class="font-button text-button text-primary hover:underline underline-offset-4 flex items-center gap-2">
+                Mark all as read
+            </button>
+</div>
+<!-- Notification List -->
+<div class="space-y-xl">
+<!-- Group: Today -->
+<section>
+<h2 class="font-label-mono text-label-mono text-on-surface-variant mb-gutter uppercase tracking-widest">Today</h2>
+<div class="space-y-sm">
+<!-- Join Request -->
+<a class="block group" href="#">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-start gap-md transition-all hover:bg-white hover:shadow-sm active:scale-[0.98] activity-card-edge text-primary">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed filled-icon" data-icon="groups">groups</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface"><span class="font-bold">Ravi</span> wants to join your <span class="italic font-headline-md text-headline-md text-primary">Chai Mate</span> session</p>
+<p class="font-label-mono text-label-mono text-on-tertiary-fixed-variant mt-xs">2 hours ago</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+</div>
+</a>
+<!-- Request Approved -->
+<a class="block group" href="#">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-start gap-md transition-all hover:bg-white hover:shadow-sm active:scale-[0.98] activity-card-edge text-secondary">
+<div class="flex-shrink-0 w-12 h-12 bg-secondary-container rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container filled-icon" data-icon="check_circle">check_circle</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">You're in! <span class="italic font-headline-md text-headline-md text-secondary">Rooftop Gardening</span> confirmed</p>
+<p class="font-label-mono text-label-mono text-on-tertiary-fixed-variant mt-xs">5 hours ago</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+</div>
+</a>
+<!-- Reminder -->
+<a class="block group" href="#">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-start gap-md transition-all hover:bg-white hover:shadow-sm active:scale-[0.98] activity-card-edge text-tertiary">
+<div class="flex-shrink-0 w-12 h-12 bg-tertiary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed filled-icon" data-icon="alarm">alarm</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">Your trek starts in <span class="font-bold">2 hours</span>. Remember to bring water!</p>
+<p class="font-label-mono text-label-mono text-on-tertiary-fixed-variant mt-xs">Just now</p>
+</div>
+<div class="w-2 h-2 rounded-full bg-primary mt-2"></div>
+</div>
+</a>
+</div>
+</section>
+<!-- Group: Earlier -->
+<section>
+<h2 class="font-label-mono text-label-mono text-on-surface-variant mb-gutter uppercase tracking-widest">Earlier</h2>
+<div class="space-y-sm">
+<!-- Discovery -->
+<a class="block group" href="#">
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-start gap-md transition-all hover:bg-white hover:shadow-sm active:scale-[0.98] activity-card-edge text-primary-container">
+<div class="flex-shrink-0 w-12 h-12 bg-primary-fixed rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="explore">explore</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface">New activity near you: <span class="italic font-headline-md text-headline-md">Chess &amp; Chai</span>, Gandhipuram</p>
+<p class="font-label-mono text-label-mono text-on-tertiary-fixed-variant mt-xs">Yesterday</p>
+</div>
+</div>
+</a>
+<!-- Sample Past Activity -->
+<a class="block group opacity-75" href="#">
+<div class="bg-surface-container border border-outline-variant rounded-xl p-md flex items-start gap-md activity-card-edge text-tertiary-container">
+<div class="flex-shrink-0 w-12 h-12 bg-surface-container-high rounded-lg flex items-center justify-center">
+<span class="material-symbols-outlined text-tertiary" data-icon="person">person</span>
+</div>
+<div class="flex-1">
+<p class="font-body-md text-on-surface-variant">Anjali commented on your post in <span class="italic font-headline-md text-headline-md">Morning Yoga</span></p>
+<p class="font-label-mono text-label-mono text-on-tertiary-fixed-variant mt-xs">2 days ago</p>
+</div>
+</div>
+</a>
+</div>
+</section>
+</div>
+<!-- Empty State Illustration (Decorative) -->
+<div class="mt-xxl text-center py-xxl border-t border-surface-variant border-dashed">
+<div class="w-48 h-48 mx-auto mb-lg opacity-40 grayscale">
+<img alt="Abstract organic pattern" class="w-full h-full object-cover rounded-full" data-alt="A soft, ethereal digital art piece featuring flowing organic shapes in earthy terracotta, sage green, and warm cream. The composition is minimal and serene, with delicate gradients that mimic light through handmade paper. The overall mood is calm, intentional, and human-centric, aligning with a premium community-driven aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfIx-v861ZCJt50vWv_lrzB5Z7EjmTQAQpvC8HmiXTd9sib7CVfGJklrOInNDhrH-ylisLCWsTEGKTad0JemuaccHTS50NUU_tMRzacF9q72Ae7A0bGGeLA4rkTk_d1XU1wxRqKtJeQg8n-YFM5WYX-GhvX3cpDOA9QCZ1fAy1xc6jaVVB1j2zctxzvvYfpPxAZo5-27c1RdCLbqx1MaOR9R7ExZYz9Z1uiNsolkGb7VSYG5JDDrvkHfekv00DGedhEN-U1XCw_Ow"/>
+</div>
+<p class="font-body-md text-on-surface-variant">You're all caught up with your community.</p>
+</div>
+</main>
+<!-- BottomNavBar (Mobile only) -->
+<nav class="fixed bottom-0 w-full z-50 flex justify-around items-center px-4 py-2 bg-surface dark:bg-surface-dim border-t border-surface-variant dark:border-outline-variant md:hidden">
+<a class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-mono text-label-mono">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+<span class="font-label-mono text-label-mono">Discover</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim bg-secondary-container dark:bg-on-secondary-fixed-variant rounded-full px-4 py-1 active:scale-95 transition-transform duration-200" href="#">
+<div class="relative">
+<span class="material-symbols-outlined filled-icon" data-icon="groups">groups</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-primary rounded-full"></span>
+</div>
+<span class="font-label-mono text-label-mono">Activity</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-tertiary-fixed-variant dark:text-tertiary-fixed-dim" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-mono text-label-mono">Profile</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for marking as read
+        document.querySelector('button:contains("Mark all as read")')?.addEventListener('click', function() {
+            document.querySelectorAll('.bg-primary.w-2.h-2').forEach(badge => {
+                badge.style.opacity = '0';
+                setTimeout(() => badge.remove(), 300);
+            });
+            const mainBadge = document.querySelector('.absolute.top-1.5.right-1.5');
+            if(mainBadge) mainBadge.remove();
+        });
+
+        // Add "contains" selector polyfill for the demo logic
+        if (!Element.prototype.matches) {
+            Element.prototype.matches = Element.prototype.msMatchesSelector || 
+                                    Element.prototype.webkitMatchesSelector;
+        }
+        
+        // Helper to find button by text for the interaction
+        const buttons = document.getElementsByTagName('button');
+        for (let i = 0; i < buttons.length; i++) {
+            if (buttons[i].textContent.includes('Mark all as read')) {
+                buttons[i].addEventListener('click', () => {
+                    document.querySelectorAll('.bg-primary.w-2.h-2').forEach(b => b.classList.add('hidden'));
+                    const badge = document.querySelector('.absolute.top-1.5.right-1.5');
+                    if (badge) badge.classList.add('hidden');
+                });
+            }
+        }
+    </script>
+</body></html>

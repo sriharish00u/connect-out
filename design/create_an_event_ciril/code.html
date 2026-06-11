@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post Event | CIRIL</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&amp;family=Inter:wght@100..900&amp;family=JetBrains+Mono:wght@100..800&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Scripts -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-on-surface": "#f7efea",
+                        "on-primary-fixed": "#390c00",
+                        "secondary-fixed-dim": "#8ad7a4",
+                        "primary": "#a63500",
+                        "background": "#fff8f4",
+                        "tertiary-fixed": "#eee0d5",
+                        "surface-tint": "#aa3600",
+                        "tertiary": "#645a52",
+                        "secondary-container": "#a5f4bf",
+                        "outline-variant": "#e3bfb3",
+                        "surface-variant": "#e9e1dc",
+                        "tertiary-container": "#7d736a",
+                        "tertiary-fixed-dim": "#d1c4ba",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#822800",
+                        "on-tertiary-container": "#fffbff",
+                        "on-surface": "#1e1b18",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#33302c",
+                        "primary-fixed-dim": "#ffb59c",
+                        "on-secondary-fixed-variant": "#00522e",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ffdbcf",
+                        "on-tertiary-fixed": "#211a14",
+                        "on-secondary-container": "#237248",
+                        "inverse-primary": "#ffb59c",
+                        "outline": "#8f7066",
+                        "surface-dim": "#e0d9d3",
+                        "surface": "#fff8f4",
+                        "surface-container-low": "#faf2ed",
+                        "surface-container": "#f4ece7",
+                        "on-primary-container": "#fffbff",
+                        "on-tertiary-fixed-variant": "#4e453d",
+                        "on-secondary-fixed": "#00210f",
+                        "on-surface-variant": "#5b4138",
+                        "surface-bright": "#fff8f4",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e9e1dc",
+                        "secondary": "#1b6c42",
+                        "on-tertiary": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#efe7e1",
+                        "error": "#ba1a1a",
+                        "primary-container": "#d04400",
+                        "secondary-fixed": "#a5f4bf",
+                        "on-background": "#1e1b18"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "12px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "base": "8px",
+                        "sm": "8px",
+                        "gutter": "16px",
+                        "container-margin": "24px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "lg": "24px",
+                        "xl": "32px"
+                    },
+                    "fontFamily": {
+                        "label-mono": ["JetBrains Mono"],
+                        "button": ["Inter"],
+                        "headline-md": ["Fraunces"],
+                        "body-md": ["Inter"],
+                        "display-hero": ["Fraunces"],
+                        "headline-lg-mobile": ["Fraunces"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Fraunces"]
+                    },
+                    "fontSize": {
+                        "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "button": ["15px", {"lineHeight": "1.0", "fontWeight": "600"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-hero": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-tile {
+            border: 2px solid #a63500;
+            background-color: #ffdbcf;
+        }
+        .card-preview-container {
+            perspective: 1000px;
+        }
+        .slot-indicator {
+            width: 8px;
+            height: 8px;
+            border-radius: 1px;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f4ece7;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #e3bfb3;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="w-full sticky top-0 z-50 bg-background dark:bg-on-surface border-b border-outline-variant dark:border-outline flat no shadows">
+<nav class="flex justify-between items-center px-container-margin py-md max-w-7xl mx-auto w-full">
+<div class="flex items-center gap-xl">
+<a class="font-headline-md italic text-primary dark:text-primary-fixed" href="#">CIRIL</a>
+<div class="hidden md:flex gap-lg">
+<a class="font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary-container transition-colors" href="#">Explore</a>
+<a class="font-body-md text-on-surface-variant dark:text-surface-variant hover:text-primary-container transition-colors" href="#">Messages</a>
+</div>
+</div>
+<div class="flex items-center gap-md">
+<button class="bg-primary text-on-primary px-xl py-base rounded-xl font-button active:scale-95 transition-transform flex items-center gap-xs"><span class="material-symbols-outlined text-sm">lock</span>Login to Post</button>
+<div class="w-10 h-10 rounded-full bg-surface-container-high border border-outline-variant overflow-hidden">
+<img alt="User avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGtQaCHLuRILwDKRcM23CQ-rsv-eWCkYNNRbwo9N9owJC4EOa-ubF1bGKlpwpz-p0ArztnHofMU8wcpABfyhGTxsOo02N2MiPox5Ss-RwWcl0SgxDrDdjlsm0b7Ue03w0Fpsea0Cj3ymLFQOLZPcJqKn1mI7NW8aFtKGHPxj2wq0Auk3FqUsbpR6Tnezty5HTXOFpntsIzaLNZ3tj9HdGcD_JX2R7ww2n6GeINuai1iVIcRcVUd2rN8JJinmT-Cla43yQipSRJ4dI"/>
+</div>
+</div>
+</nav>
+</header>
+<main class="max-w-7xl mx-auto px-container-margin py-xxl">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-xxl items-start">
+<!-- Form Section -->
+<section class="lg:col-span-7">
+<div class="mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Post an Event</h1>
+<p class="text-on-surface-variant">Gather your community. Create impact through local events.</p>
+</div>
+<div class="bg-surface-container-lowest border border-outline-variant rounded-xl p-xl shadow-sm">
+<form class="space-y-lg" id="activityForm">
+<!-- Title Field -->
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm" for="title">Event Title</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-md focus:border-primary focus:ring-0 text-body-md font-headline-md focus:ring-2 focus:ring-primary" id="title" maxlength="80" oninput="updatePreview()" placeholder="e.g., Weekend Football Friendly" required="true" type="text"/>
+<div class="flex justify-end mt-xs">
+<span class="font-label-mono text-[10px] text-outline" id="charCount">0/80</span>
+</div>
+</div>
+<!-- Category Picker -->
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm">Category</label>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-sm">
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('⚽ Football', 'secondary')" type="button">
+<span class="text-2xl">⚽</span>
+<span class="font-label-mono text-[10px]">Football</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('🏏 Cricket', 'secondary')" type="button">
+<span class="text-2xl">🏏</span>
+<span class="font-label-mono text-[10px]">Cricket</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('🏀 Basketball', 'secondary')" type="button">
+<span class="text-2xl">🏀</span>
+<span class="font-label-mono text-[10px]">Basketball</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('🏃 Running', 'secondary')" type="button">
+<span class="text-2xl">🏃</span>
+<span class="font-label-mono text-[10px]">Running</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('📚 Study Group', 'primary')" type="button">
+<span class="text-2xl">📚</span>
+<span class="font-label-mono text-[10px]">Study</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('🤝 Volunteer', 'tertiary')" type="button">
+<span class="text-2xl">🤝</span>
+<span class="font-label-mono text-[10px]">Volunteer</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('📢 Meeting', 'tertiary')" type="button">
+<span class="text-2xl">📢</span>
+<span class="font-label-mono text-[10px]">Meeting</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('🌍 Social Cause', 'primary')" type="button">
+<span class="text-2xl">🌍</span>
+<span class="font-label-mono text-[10px]">Social</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('🩸 Blood Donation', 'primary')" type="button">
+<span class="text-2xl">🩸</span>
+<span class="font-label-mono text-[10px]">Blood</span>
+</button>
+<button class="category-tile flex flex-col items-center gap-xs p-md border border-outline-variant rounded-xl hover:bg-surface-container-high transition-all focus:ring-2 focus:ring-primary focus:outline-none" onclick="selectCategory('✨ General', 'secondary')" type="button">
+<span class="text-2xl">✨</span>
+<span class="font-label-mono text-[10px]">General</span>
+</button>
+</div>
+</div>
+<!-- Description -->
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm" for="description">Event Description</label>
+<textarea class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-md focus:border-primary focus:ring-0 text-body-md" id="description" oninput="updatePreview()" placeholder="Describe what's happening, any requirements, etc..." rows="4"></textarea>
+</div>
+<!-- Location & Date -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm" for="location">Location</label>
+<div class="relative">
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-md pr-12 focus:border-primary focus:ring-0 text-body-md focus:ring-2 focus:ring-primary" id="location" oninput="updatePreview()" placeholder="Venue name or city" required="true" type="text"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-primary hover:text-primary-container transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">my_location</span>
+</button>
+</div>
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm" for="datetime">Date &amp; Time</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-md focus:border-primary focus:ring-0 text-body-md" id="datetime" onchange="updatePreview()" type="datetime-local"/>
+</div>
+</div>
+<!-- Participants & Visibility -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg items-start">
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm" for="max_participants">Max Participants (1-100)</label>
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-md focus:border-primary focus:ring-0 text-body-md font-label-mono" id="max_participants" max="100" min="1" oninput="updatePreview()" type="number" value="10"/>
+</div>
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm" for="visibility">Visibility Settings</label>
+<select class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-md focus:border-primary focus:ring-0 text-body-md" id="visibility" onchange="updatePreview()">
+<option value="Public">Public (Anyone can see)</option>
+<option value="Private">Private (Invite only)</option>
+<option value="Community">Community Only</option>
+</select>
+</div>
+</div>
+<!-- Anonymous Mode Toggle -->
+<div class="flex items-center justify-between p-md border border-outline-variant rounded-lg">
+<div>
+<p class="font-label-mono text-label-mono text-on-surface uppercase">Anonymous Host</p>
+<p class="text-[10px] text-on-surface-variant">Hide your profile from non-attendees</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" id="anon" onchange="updatePreview()" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Tags -->
+<div>
+<label class="block font-label-mono text-label-mono text-on-surface-variant uppercase tracking-wider mb-sm">Tags</label>
+<div class="flex flex-wrap gap-xs mb-sm" id="tagContainer"></div>
+<input class="w-full bg-surface-container-lowest border-outline-variant rounded-lg p-md focus:border-primary focus:ring-0 text-body-md focus:ring-2 focus:ring-primary" id="tagInput" onkeypress="handleTagInput(event)" placeholder="Add a tag and press enter..." type="text"/>
+</div>
+<button class="w-full bg-primary text-on-primary font-headline-md py-lg rounded-xl shadow-lg hover:bg-primary-container active:scale-95 transition-all opacity-50 cursor-not-allowed" type="button">
+<span class="flex items-center justify-center gap-sm"><span class="material-symbols-outlined">login</span>Sign in to Post Event</span>
+</button>
+</form>
+</div>
+</section>
+<!-- Preview Section -->
+<aside class="lg:col-span-5 lg:sticky lg:top-32">
+<div class="mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Preview</h2>
+<p class="text-on-surface-variant">Live look at your event card.</p>
+</div>
+<div class="card-preview-container">
+<article class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden shadow-md flex">
+<!-- Left Stripe -->
+<div class="w-1.5 bg-secondary" id="previewStripe"></div>
+<div class="p-lg flex-1">
+<div class="flex justify-between items-start mb-md">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden border border-outline-variant">
+<img alt="User" id="previewAvatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqBL7hvbu5AldT_OgB8CMow6YBLbNbPUb-tmd07-mxPmRHq_w47nR9l1UloJtCdYmwt6zX1a4C8nWgXQeIKBUQmGBAGzB0bzLxofssq83dQbf3k_6od0Y44QpXJig2OVKGJmYnmM845sBIaNEPSvpiNofbJ3o9vpwuqdOzddbWiDaFNkAAq3qI-ehqEBRREviaynQfuTpKH12AsyzAHcXNMXp40dbRT-V_k9mvevkVvc-0Lne1RFmgexUNZ-xsUB-Z2gZMRFVJPA0"/>
+</div>
+<div>
+<p class="font-headline-md text-sm italic leading-none" id="previewAuthor">Your Name</p>
+<p class="font-label-mono text-[10px] text-outline mt-0.5" id="previewVisibility">Public</p>
+</div>
+</div>
+<span class="bg-surface-container-high px-md py-xs rounded-full font-label-mono text-[11px] text-on-surface-variant" id="previewCategory">⚽ Football</span>
+</div>
+<h3 class="font-headline-md text-headline-md italic mb-sm" id="previewTitle">The Event Title</h3>
+<p class="text-on-surface-variant line-clamp-3 mb-md" id="previewDescription">A brief, thoughtful description will appear here...</p>
+<div class="grid grid-cols-2 gap-sm mb-lg">
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-base">location_on</span>
+<span class="font-label-mono text-label-mono truncate" id="previewLocation">Location</span>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="material-symbols-outlined text-base">schedule</span>
+<span class="font-label-mono text-label-mono" id="previewTime">Time</span>
+</div>
+</div>
+<div class="flex flex-wrap gap-xs mb-lg" id="previewTags"></div>
+<div class="flex items-center justify-between pt-md border-t border-outline-variant">
+<div class="flex items-center gap-sm">
+<div class="flex gap-[2px]" id="previewSlots"></div>
+<span class="font-label-mono text-[10px] text-outline" id="participantText">10 max</span>
+</div>
+<button class="font-label-mono text-primary flex items-center gap-xs hover:underline">
+                                    Join Event <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</article>
+<!-- Engagement Tip -->
+<div class="mt-lg p-lg bg-secondary-container text-on-secondary-container rounded-xl flex gap-md items-start">
+<span class="material-symbols-outlined mt-1">groups</span>
+<div>
+<p class="font-headline-md italic text-md leading-tight mb-1">Host Tip</p>
+<p class="text-sm">Public events reach 5x more people in the local community feed.</p>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-xxl bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center px-container-margin gap-md max-w-7xl mx-auto w-full">
+<div class="flex flex-col gap-xs">
+<span class="font-headline-md italic text-on-surface">CIRIL</span>
+<p class="font-body-md text-on-surface-variant">© 2024 CIRIL. Built for real impact.</p>
+</div>
+<div class="flex gap-lg">
+<a class="font-body-md text-tertiary dark:text-tertiary-fixed hover:underline decoration-primary" href="#">About</a>
+<a class="font-body-md text-tertiary dark:text-tertiary-fixed hover:underline decoration-primary" href="#">Safety</a>
+<a class="font-body-md text-tertiary dark:text-tertiary-fixed hover:underline decoration-primary" href="#">Guidelines</a>
+<a class="font-body-md text-tertiary dark:text-tertiary-fixed hover:underline decoration-primary" href="#">Support</a>
+</div>
+</div>
+</footer>
+<script>
+        let selectedCategoryData = { emoji: '⚽', label: 'Football', color: 'secondary' };
+        let tags = ['ciril'];
+
+        function selectCategory(label, color) {
+            const tiles = document.querySelectorAll('.category-tile');
+            tiles.forEach(tile => tile.classList.remove('active-tile'));
+            
+            const selectedTile = Array.from(tiles).find(tile => tile.textContent.includes(label.split(' ')[1]));
+            if (selectedTile) selectedTile.classList.add('active-tile');
+            
+            const parts = label.split(' ');
+            const emoji = parts[0];
+            const name = parts.slice(1).join(' ');
+            selectedCategoryData = { emoji, label: name, color };
+            updatePreview();
+        }
+
+        function handleTagInput(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const val = e.target.value.trim().toLowerCase();
+                if (val && !tags.includes(val)) {
+                    tags.push(val);
+                    renderTags();
+                    updatePreview();
+                }
+                e.target.value = '';
+            }
+        }
+
+        function removeTag(tag) {
+            tags = tags.filter(t => t !== tag);
+            renderTags();
+            updatePreview();
+        }
+
+        function renderTags() {
+            const container = document.getElementById('tagContainer');
+            container.innerHTML = tags.map(tag => `
+                <span class="inline-flex items-center gap-1 bg-surface-container-high text-on-surface px-md py-xs rounded-full font-label-mono text-xs">
+                    ${tag}
+                    <button type="button" onclick="removeTag('${tag}')" class="hover:text-error">
+                        <span class="material-symbols-outlined text-sm">close</span>
+                    </button>
+                </span>
+            `).join('');
+        }
+
+        function updatePreview() {
+            // Title
+            const titleInput = document.getElementById('title');
+            const previewTitle = document.getElementById('previewTitle');
+            const charCount = document.getElementById('charCount');
+            previewTitle.textContent = titleInput.value || 'The Event Title';
+            charCount.textContent = `${titleInput.value.length}/80`;
+
+            // Description
+            const descInput = document.getElementById('description');
+            const previewDesc = document.getElementById('previewDescription');
+            previewDesc.textContent = descInput.value || "A brief, thoughtful description will appear here...";
+
+            // Category
+            const previewCategory = document.getElementById('previewCategory');
+            previewCategory.textContent = `${selectedCategoryData.emoji} ${selectedCategoryData.label}`;
+            
+            // Stripe Color
+            const previewStripe = document.getElementById('previewStripe');
+            const colorMap = {
+                'primary': 'bg-primary',
+                'secondary': 'bg-secondary',
+                'tertiary': 'bg-tertiary'
+            };
+            previewStripe.className = `w-1.5 ${colorMap[selectedCategoryData.color] || 'bg-secondary'}`;
+
+            // Location
+            const locInput = document.getElementById('location');
+            document.getElementById('previewLocation').textContent = locInput.value || 'Location';
+
+            // Time
+            const timeInput = document.getElementById('datetime');
+            if (timeInput.value) {
+                const date = new Date(timeInput.value);
+                const formatted = date.toLocaleDateString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+                document.getElementById('previewTime').textContent = formatted;
+            } else {
+                document.getElementById('previewTime').textContent = 'Time';
+            }
+
+            // Visibility
+            const visibilitySelect = document.getElementById('visibility');
+            document.getElementById('previewVisibility').textContent = visibilitySelect.value;
+
+            // Anon Toggle
+            const anon = document.getElementById('anon').checked;
+            const previewAuthor = document.getElementById('previewAuthor');
+            const previewAvatar = document.getElementById('previewAvatar');
+            if (anon) {
+                previewAuthor.textContent = 'Anonymous Host';
+                previewAvatar.src = `https://api.dicebear.com/7.x/bottts-neutral/svg?seed=AnonHost`;
+            } else {
+                previewAuthor.textContent = 'Your Name';
+                previewAvatar.src = `https://api.dicebear.com/7.x/avataaars/svg?seed=CIRILUser`;
+            }
+
+            // Participants
+            const pCount = parseInt(document.getElementById('max_participants').value) || 10;
+            document.getElementById('participantText').textContent = `${pCount} max`;
+            const previewSlots = document.getElementById('previewSlots');
+            previewSlots.innerHTML = '';
+            // Display up to 5 icons for visual
+            const displayLimit = Math.min(pCount, 5);
+            for (let i = 0; i < displayLimit; i++) {
+                const slot = document.createElement('div');
+                slot.className = i === 0 ? 'slot-indicator bg-secondary' : 'slot-indicator border border-outline-variant';
+                previewSlots.appendChild(slot);
+            }
+
+            // Preview Tags
+            const previewTags = document.getElementById('previewTags');
+            previewTags.innerHTML = tags.map(tag => `
+                <span class="bg-surface-container-high text-outline px-sm py-xs rounded-full font-label-mono text-[10px]">${tag}</span>
+            `).join('');
+        }
+
+        // Initialize UI
+        renderTags();
+        selectCategory('⚽ Football', 'secondary');
+        updatePreview();
+    </script>
+</body></html>
